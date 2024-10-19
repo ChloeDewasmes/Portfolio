@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({ width = 164, height = 68, text }) => {
       {/* Button background */}
       <rect x="6" y="7" width="158" height="61" rx="6" fill="#99433A" />
 
-      {/* Border with dynamic stroke width */}
+      {/* Border with dynamic stroke width and transition */}
       <rect
         x="0.5"
         y="0.5"
@@ -34,9 +34,10 @@ const Button: React.FC<ButtonProps> = ({ width = 164, height = 68, text }) => {
         rx="5.5"
         stroke="#D9D9D9"
         strokeWidth={isHovered ? "3" : "1"} // Thicker border on hover
+        style={{ transition: "stroke-width 0.3s ease" }} // Smooth transition for stroke width
       />
 
-      {/* Button Text with dynamic font weight */}
+      {/* Button Text with dynamic font weight and transition */}
       <text
         x="50%"
         y="50%"
@@ -45,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({ width = 164, height = 68, text }) => {
         fill="#D9D9D9"
         fontSize="20"
         fontWeight={isHovered ? "bold" : "normal"} // Bold font on hover
+        style={{ transition: "font-weight 0.3s ease" }} // Smooth transition for font weight
       >
         {text}
       </text>

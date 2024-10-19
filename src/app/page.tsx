@@ -3,7 +3,7 @@ import Profile from "./public/images/profile.png";
 import Contact from "./public/images/contact.png";
 import Programming from "./public/images/programming.png";
 import Button from "./components/Button";
-import IconButton from "./components/IconButton";
+import { Linkedin, Github } from "lucide-react";
 
 export default function Home() {
   return (
@@ -49,16 +49,59 @@ export default function Home() {
               </text>
               <text className="font-medium">based in France.</text>
             </div>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-6 items-center">
               <a
-                className="flex justify-end items-end bottom-0"
+                className="mr-1"
                 href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button text="Resume" />
               </a>
-              <Button text="GitHub" />
+              <a
+                className="hover:cursor-pointer"
+                href="https://www.linkedin.com/in/chloe-dewasmes/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="icon-wrapper relative group">
+                  {/* Default icon */}
+                  <Linkedin
+                    className="icon text-light-grey"
+                    size={48}
+                    style={{ strokeWidth: 0.5 }} // Base stroke width
+                  />
+
+                  {/* Thicker icon for hover effect */}
+                  <Linkedin
+                    className="icon text-light-grey absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" // Hidden by default
+                    size={48}
+                    style={{ strokeWidth: 1.5 }} // Increased stroke width
+                  />
+                </div>
+              </a>
+              <a
+                className="hover:cursor-pointer"
+                href="https://github.com/ChloeDewasmes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="icon-wrapper relative group">
+                  {/* Default icon */}
+                  <Github
+                    className="icon text-light-grey"
+                    size={48}
+                    style={{ strokeWidth: 0.5 }} // Base stroke width
+                  />
+
+                  {/* Thicker icon for hover effect */}
+                  <Github
+                    className="icon text-light-grey absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" // Hidden by default
+                    size={48}
+                    style={{ strokeWidth: 1.5 }} // Increased stroke width
+                  />
+                </div>
+              </a>
             </div>
           </div>
           <Image
