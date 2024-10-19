@@ -3,67 +3,52 @@ import Profile from "./public/images/profile.png";
 import Contact from "./public/images/contact.png";
 import Programming from "./public/images/programming.png";
 import Button from "./components/Button";
-import { AuroraBackground } from "./components/aurora-background";
-import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="bg-background-blue h-full w-full px-[97px] py-[47px] font-poppins">
       <div className="h-[100vh]">
-        <AuroraBackground>
-          <motion.div
-            initial={{ opacity: 0.0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="relative flex flex-col gap-4 items-center justify-center px-4"
-          >
-            <header className="flex items-center justify-between w-full">
-              <text className="text-light-grey text-2xl font-semibold">
-                Chloe Dewasmes
+        <header className="flex items-center justify-between w-full">
+          <text className="text-light-grey text-2xl font-semibold">
+            Chloe Dewasmes
+          </text>
+          <div className="flex text-light-grey text-lg gap-6">
+            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+              About
+            </text>
+            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+              Skills
+            </text>
+            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+              Projects
+            </text>
+            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+              Contact
+            </text>
+          </div>
+        </header>
+        <div className="flex">
+          <div>
+            <div className="flex flex-col flex-wrap text-4xl w-60 text-light-grey mt-60">
+              <text className="font-medium">Hello, I'm Chloe,</text>
+              <text className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-9xl font-black mb-10">
+                Web Developer
               </text>
-              <div className="flex text-light-grey text-lg gap-6">
-                <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
-                  About
-                </text>
-                <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
-                  Skills
-                </text>
-                <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
-                  Projects
-                </text>
-                <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
-                  Contact
-                </text>
-              </div>
-            </header>
-            <div className="flex">
-              <div>
-                <div className="flex flex-col flex-wrap text-4xl w-60 text-light-grey mt-60">
-                  <text className="font-medium">Hello, I'm Chloe,</text>
-                  <text className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-9xl font-black mb-10">
-                    Web Developer
-                  </text>
-                  <text className="font-medium">based in France.</text>
-                </div>
-                <div>
-                  <Button text="Resume" />
-                  <button>In</button>
-                  <button>Git</button>
-                </div>
-              </div>
-              <Image
-                className="absolute right-64 top-36"
-                src={Profile}
-                alt="Computer illustrations by Storyset & Profile picture"
-                height={600}
-              />
+              <text className="font-medium">based in France.</text>
             </div>
-          </motion.div>
-        </AuroraBackground>
+            <div>
+              <Button text="Resume" />
+              <button>In</button>
+              <button>Git</button>
+            </div>
+          </div>
+          <Image
+            className="absolute right-64 top-36"
+            src={Profile}
+            alt="Computer illustrations by Storyset & Profile picture"
+            height={600}
+          />
+        </div>
       </div>
       <div className="h-[100vh]">
         <h1 className="text-salmon-pink text-9xl font-extrabold mb-8">
