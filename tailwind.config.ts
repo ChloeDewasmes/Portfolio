@@ -11,6 +11,13 @@ const config: Config = {
       fontFamily: {
         poppins: ["var(--poppins)"],
       },
+      fontWeight: {
+        thin: "100",
+        extralight: "200",
+        medium: "500",
+        bold: "700",
+        extrabold: "800",
+      },
       colors: {
         "background-blue": "#1B1F24",
         "light-grey": "#D9D9D9",

@@ -3,28 +3,41 @@ import Profile from "./public/images/profile.png";
 import Contact from "./public/images/contact.png";
 import Programming from "./public/images/programming.png";
 import Button from "./components/Button";
+import IconButton from "./components/IconButton";
 
 export default function Home() {
   return (
     <div className="bg-background-blue h-full w-full px-[97px] py-[47px] font-poppins">
       <div className="h-[100vh]">
         <header className="flex items-center justify-between w-full">
-          <text className="text-light-grey text-2xl font-semibold">
+          <text className="text-light-grey text-2xl font-semibold mr-12">
             Chloe Dewasmes
           </text>
           <div className="flex text-light-grey text-lg gap-6">
-            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+            <a
+              href="#about"
+              className="hover:text-white hover:font-semibold hover:cursor-pointer"
+            >
               About
-            </text>
-            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+            </a>
+            <a
+              href="#skills"
+              className="hover:text-white hover:font-semibold hover:cursor-pointer"
+            >
               Skills
-            </text>
-            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+            </a>
+            <a
+              href="#projects"
+              className="hover:text-white hover:font-semibold hover:cursor-pointer"
+            >
               Projects
-            </text>
-            <text className="hover:text-white hover:font-semibold hover:cursor-pointer">
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-white hover:font-semibold hover:cursor-pointer"
+            >
               Contact
-            </text>
+            </a>
           </div>
         </header>
         <div className="flex">
@@ -36,9 +49,15 @@ export default function Home() {
               </text>
               <text className="font-medium">based in France.</text>
             </div>
-            <div>
-              <Button text="Resume" />
-              <Button text="In" />
+            <div className="flex flex-row gap-4">
+              <a
+                className="flex justify-end items-end bottom-0"
+                href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button text="Resume" />
+              </a>
               <Button text="GitHub" />
             </div>
           </div>
@@ -51,7 +70,10 @@ export default function Home() {
         </div>
       </div>
       <div className="h-[100vh]">
-        <h1 className="text-salmon-pink text-9xl font-extrabold mb-8">
+        <h1
+          className="text-salmon-pink text-9xl font-extrabold mb-8"
+          id="about"
+        >
           about.
         </h1>
         <div className="text-light-grey text-2xl">
@@ -61,7 +83,10 @@ export default function Home() {
         </div>
       </div>
       <div className="h-[100vh]">
-        <h1 className="text-salmon-pink text-9xl font-extrabold mb-8">
+        <h1
+          className="text-salmon-pink text-9xl font-extrabold mb-8"
+          id="skills"
+        >
           skills.
         </h1>
         <div className="text-light-grey text-2xl">
@@ -71,7 +96,10 @@ export default function Home() {
         </div>
       </div>
       <div className="h-[100vh]">
-        <h1 className="text-salmon-pink text-9xl font-extrabold mb-8">
+        <h1
+          className="text-salmon-pink text-9xl font-extrabold mb-8"
+          id="projects"
+        >
           projects.
         </h1>
         <div className="text-light-grey text-2xl">
@@ -81,7 +109,10 @@ export default function Home() {
         </div>
       </div>
       <div className="h-[100vh] py-48">
-        <h1 className="text-salmon-pink text-9xl font-extrabold mb-8">
+        <h1
+          className="text-salmon-pink text-9xl font-extrabold mb-8"
+          id="contact"
+        >
           contact.
         </h1>
         <div className="flex flex-row items-center">
@@ -104,6 +135,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <a
+          className="flex justify-end items-end bottom-0"
+          href="https://storyset.com/computer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          © Illustrations by Storyset
+        </a>
       </div>
     </div>
   );
