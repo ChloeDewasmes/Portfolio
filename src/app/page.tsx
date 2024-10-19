@@ -4,6 +4,7 @@ import Contact from "./public/images/contact.png";
 import Programming from "./public/images/programming.png";
 import Button from "./components/Button";
 import { Linkedin, Github } from "lucide-react";
+import ScrollToTopButton from "./components/scrollToTopButton";
 
 export default function Home() {
   return (
@@ -178,15 +179,26 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a
-          className="flex justify-end items-end bottom-0"
-          href="https://storyset.com/computer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          © Illustrations by Storyset
-        </a>
+        <div>
+          <a
+            className="flex justify-end items-end bottom-0"
+            href="https://lucide.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            © Icons by Lucide
+          </a>
+          <a
+            className="flex justify-end items-end bottom-0"
+            href="https://storyset.com/computer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            © Illustrations by Storyset
+          </a>
+        </div>
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }
