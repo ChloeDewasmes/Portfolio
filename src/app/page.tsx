@@ -38,8 +38,8 @@ export default function Home() {
             </div>
             <div>
               <Button text="Resume" />
-              <button>In</button>
-              <button>Git</button>
+              <Button text="In" />
+              <Button text="GitHub" />
             </div>
           </div>
           <Image
