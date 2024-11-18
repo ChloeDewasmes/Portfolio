@@ -45,7 +45,7 @@ export default function Home() {
           <div>
             <div className="flex flex-col flex-wrap text-4xl w-60 text-light-grey mt-60">
               <text className="font-medium">Hello, I'm Chloe,</text>
-              <text className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-9xl font-black mb-10">
+              <text className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-9xl mb-10">
                 Web Developer
               </text>
               <text className="font-medium">based in France.</text>
@@ -115,7 +115,7 @@ export default function Home() {
       </div>
       <div className="h-[100vh]">
         <h1
-          className="text-salmon-pink text-9xl font-extrabold mb-8"
+          className="text-salmon-pink text-9xl font-poppins font-black mb-8"
           id="about"
         >
           about.
