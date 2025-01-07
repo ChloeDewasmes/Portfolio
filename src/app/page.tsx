@@ -120,10 +120,24 @@ export default function Home() {
         >
           about.
         </h1>
-        <div className="text-light-grey text-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet
-          vulputate tristique quam felis. Id phasellus dui orci vulputate
-          consequat nulla proin. Id sit scelerisque neque, proin bibendum diam.
+        <div className="space-y-10 text-light-grey text-2xl/10">
+          <p>
+            💻 As a Fullstack Developer, I combine my problem-solving and
+            technical logic skills with my passion for design and user
+            experience. For me, web and mobile development is a constantly
+            evolving field, offering both creative and technical challenges that
+            I enjoy tackling every day.
+          </p>
+          <p>
+            🎓 Trained as a formulation chemistry engineer, I began my career in
+            R&D, where I quickly had the opportunity to engage with coding to
+            meet the needs of a specific project. This first encounter was a
+            revelation and inspired me to shift towards development.
+          </p>
+          <p>
+            🔍 Open to new opportunities, I am looking for innovative projects
+            where I can contribute my versatility and interest in technology.
+          </p>
         </div>
       </div>
       <div className="h-[100vh]">
