@@ -7,9 +7,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State pour afficher/masquer le menu
 
   return (
-    <header className="flex items-center justify-between w-full px-6 py-4 bg-background-blue">
+    <header className="flex items-center justify-between w-full bg-background-blue">
       {/* Logo ou titre */}
-      <text className="text-light-grey text-2xl font-semibold whitespace-nowrap mr-12">
+      <text className="text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
         Chloe Dewasmes
       </text>
 

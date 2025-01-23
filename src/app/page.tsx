@@ -9,7 +9,7 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 
 export default function Home() {
   return (
-    <div className="bg-background-blue min-w-screen min-h-screen sm:px-[97px] sm:py-[47px] px-4 py-4 font-poppins">
+    <div className="bg-background-blue min-w-screen min-h-screen sm:px-[97px] sm:py-[47px] px-6 py-4 font-poppins">
       <div className="h-[100vh]">
         <Header />
         <div className="flex">
