@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
       <Header />
-      <div className="flex flex-col md:flex-row-reverse items-center justify-between min-h-screen gap-10">
+      <div className="flex flex-col sm:[@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-between min-h-screen gap-10">
         {/* Image de profil */}
         <div className="flex justify-center w-full md:w-1/2">
           <Image
