@@ -21,7 +21,7 @@ const config: Config = {
       colors: {
         "background-blue": "#1B1F24",
         "light-grey": "#D9D9D9",
-        "dark-gray": "#737373",
+        "dark-grey": "#737373",
         "salmon-pink": "#FF6F61",
         "dark-salmon": "#99433A",
       },
