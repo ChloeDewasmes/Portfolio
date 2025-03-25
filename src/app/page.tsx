@@ -124,13 +124,14 @@ export default function Home() {
           alt="Contact illustration"
           className="w-full sm:w-1/3 object-cover mx-auto"
         />
-        <p className="text-justify text-light-grey text-xl sm:text-2xl">
+        <p className="mt-6 text-justify text-light-grey text-xl sm:text-2xl">
           I am available to discuss any opportunities and projects. I’m eager to
           hear from you!
         </p>
-        <p className="mt-6 text-light-grey text-xl sm:text-2xl">
-          📧 chloe.dewasmes@itech.fr | 📞 +33 6 18 40 76 93
-        </p>
+        <div className="mt-6 text-light-grey text-xl sm:text-2xl flex flex-col sm:flex-row gap-2 sm:gap-4">
+          <p className="flex whitespace-nowrap">📧 chloe.dewasmes@itech.fr</p>
+          <p className="flex whitespace-nowrap">📞 +33 6 18 40 76 93</p>
+        </div>
       </div>
 
       <div>
