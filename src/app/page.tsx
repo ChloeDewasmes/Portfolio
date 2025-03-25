@@ -23,11 +23,20 @@ export default function Home() {
 
         {/* Titre et liens */}
         <div className="text-light-grey text-center md:text-left w-full md:w-1/2 space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold">Hello, I'm Chloe,</h1>
-          <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent">
-            Web Developer
-          </h2>
-          <h3 className="text-2xl md:text-4xl">based in France.</h3>
+          <div className="text-light-grey text-center md:text-left w-full space-y-2 sm:space-y-4">
+            <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+              Hello, I'm Chloe,
+            </h1>
+            <h2
+              className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent mb-10 
+              text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
+            >
+              Web Developer
+            </h2>
+            <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+              based in France.
+            </h3>
+          </div>
 
           <div className="flex flex-col md:flex-row items-center gap-6">
             <a
