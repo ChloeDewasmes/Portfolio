@@ -44,3 +44,7 @@
     font-family: "Poppins", system-ui, sans-serif;
   }
 }
+
+.text-clamp {
+  font-size: clamp(2rem, 8vw, 9rem);
+}

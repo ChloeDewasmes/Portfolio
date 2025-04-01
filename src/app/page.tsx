@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
       <Header />
-      <div className="flex flex-col sm:[@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-between min-h-screen gap-10">
+      <div className="flex flex-col sm:[@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center min-h-screen gap-10">
         {/* Image de profil */}
         <div className="flex justify-center w-full md:w-1/2">
           <Image
@@ -27,18 +27,16 @@ export default function Home() {
             <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
               Hello, I'm Chloe,
             </h1>
-            <h2
-              className="bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent mb-10 
-              text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
-            >
+            <h2 className="text-clamp font-extralight mb-10 bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
               Web Developer
             </h2>
+
             <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
               based in France.
             </h3>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6">
             <a
               className="mb-4 md:mb-0"
               href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
