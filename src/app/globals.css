@@ -48,3 +48,12 @@
 .text-clamp {
   font-size: clamp(2rem, 8vw, 9rem);
 }
+
+@media (max-height: 500px) {
+  .hide-on-landscape {
+    display: none;
+  }
+  .landscape-settings {
+    max-height: 400px;
+  }
+}

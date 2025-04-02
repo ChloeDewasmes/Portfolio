@@ -15,7 +15,7 @@ export default function Home() {
         {/* Image de profil */}
         <div className="flex justify-center">
           <Image
-            className="w-[80%] object-contain [@media(max-aspect-ratio:1/1)]:max-w-[500px]"
+            className="w-[80%] object-contain [@media(max-aspect-ratio:1/1)]:max-w-[500px] landscape-settings"
             src={Profile}
             alt="Profile picture"
           />
@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Titre et liens */}
         <div className="text-light-grey text-center w-full md:w-1/2">
-          <div className="text-light-grey text-center md:text-left w-full space-y-4 mb-8 md:mb-12 text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+          <div className="text-light-grey text-center md:text-left w-full space-y-4 mb-8 md:mb-12 text-2xl md:text-3xl lg:text-4xl xl:text-5xl landscape-settings">
             <p>Hello, I'm Chloe,</p>
             <h1 className="leading-none text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
               Web Developer

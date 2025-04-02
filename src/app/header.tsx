@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between w-full bg-background-blue">
       {/* Logo ou titre */}
-      <text className="text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
+      <text className="hide-on-landscape text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
         Chloe Dewasmes
       </text>
 
