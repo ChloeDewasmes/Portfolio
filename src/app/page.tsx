@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
       <Header />
-      <div className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center min-h-screen">
+      <div className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center min-h-[90vh]">
         {/* Image de profil */}
-        <div className="flex justify-center">
+        <div className="flex justify-center py-6">
           <Image
-            className="w-[80%] max-h-[800px] object-contain [@media(max-aspect-ratio:1/1)]:w-[500px] landscape-settings"
+            className="max-w-[80%] max-h-[800px] [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
             src={Profile}
             alt="Profile picture"
           />
@@ -23,7 +23,7 @@ export default function Home() {
 
         {/* Titre et liens */}
         <div className="text-light-grey text-center w-full md:w-1/2">
-          <div className="text-light-grey text-center md:text-left w-full space-y-4 mb-8 md:mb-12 text-clamp landscape-settings">
+          <div className="text-light-grey text-center md:text-left w-full space-y-4 pb-clamp text-clamp landscape-settings">
             <p>Hello, I'm Chloe,</p>
             <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
               Web Developer
@@ -33,7 +33,6 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start items-center gap-6">
             <a
-              className="mb-4"
               href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"

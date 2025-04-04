@@ -53,6 +53,10 @@
   font-size: clamp(1rem, 5vw, 2rem);
 }
 
+.pb-clamp {
+  padding-bottom: clamp(2rem, 5vw, 5rem);
+}
+
 @media (max-height: 500px) {
   .hide-on-landscape {
     display: none;

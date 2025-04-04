@@ -43,10 +43,10 @@ export default function Header() {
 
       {/* Menu Burger (Mobile) */}
       <button
-        className="md:hidden text-light-grey text-3xl"
+        className="md:hidden text-light-grey"
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        {menuOpen ? <X size={32} /> : <Menu size={32} />}
+        <Menu size={32} />
       </button>
 
       {/* Menu déroulant (Mobile) */}
