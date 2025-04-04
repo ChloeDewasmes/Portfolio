@@ -45,8 +45,12 @@
   }
 }
 
+.title-text-clamp {
+  font-size: clamp(2rem, 8vw, 8rem);
+}
+
 .text-clamp {
-  font-size: clamp(2rem, 8vw, 9rem);
+  font-size: clamp(1rem, 5vw, 2rem);
 }
 
 @media (max-height: 500px) {
