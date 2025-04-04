@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
       <Header />
-      <div className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center min-h-[90vh]">
+      <div className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center h-[90vh] ">
         {/* Image de profil */}
         <div className="flex justify-center py-6">
           <Image
-            className="max-w-[80%] max-h-[800px] [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
+            className="max-w-[80%] max-h-[800px] object-contain [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
             src={Profile}
             alt="Profile picture"
           />
