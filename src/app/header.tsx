@@ -7,7 +7,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State pour afficher/masquer le menu
 
   return (
-    <header className="flex items-center justify-between w-full bg-background-blue">
+    <header className="flex justify-between w-full bg-background-blue">
       {/* Logo ou titre */}
       <text className="hide-on-landscape text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
         Chloe Dewasmes
@@ -43,7 +43,7 @@ export default function Header() {
 
       {/* Menu Burger (Mobile) */}
       <button
-        className="md:hidden text-light-grey"
+        className="content-end md:hidden text-light-grey "
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <Menu size={32} />
