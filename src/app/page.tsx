@@ -10,12 +10,13 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
-      <header className="min-h-[30px] flex items-center justify-between z-10 relative">
+      <header className="h-[30px] flex items-center z-10 relative">
         <Header />
       </header>
-      <main className="flex flex-col items-center justify-center h-[calc(100vh-60px)] [@media(min-aspect-ratio:1/1)]:flex-row-reverse overflow-hidden">
-        {/* Image de profil */}
-        <div className="flex justify-center py-6 h-[90vh]">
+
+      <main className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center h-[calc(100vh-60px)]">
+        {/* Contenu principal */}
+        <div className="flex justify-center py-6 h-full">
           <Image
             className="max-w-[80%] object-contain [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
             src={Profile}
@@ -24,8 +25,8 @@ export default function Home() {
         </div>
 
         {/* Titre et liens */}
-        <div className="text-light-grey text-center w-full md:w-1/2">
-          <div className="text-light-grey text-center md:text-left w-full space-y-4 pb-clamp text-clamp landscape-settings">
+        <div className="text-light-grey text-center w-full md:w-1/2 max-h-[90vh] mt-6">
+          <div className="md:text-left w-full space-y-4 pb-clamp text-clamp landscape-settings">
             <p>Hello, I'm Chloe,</p>
             <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
               Web Developer
