@@ -10,12 +10,14 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 export default function Home() {
   return (
     <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
-      <Header />
-      <div className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center h-[90vh] ">
+      <header className="min-h-[30px] flex items-center justify-between z-10 relative">
+        <Header />
+      </header>
+      <main className="flex flex-col items-center justify-center h-[calc(100vh-60px)] [@media(min-aspect-ratio:1/1)]:flex-row-reverse overflow-hidden">
         {/* Image de profil */}
-        <div className="flex justify-center py-6">
+        <div className="flex justify-center py-6 h-[90vh]">
           <Image
-            className="max-w-[80%] max-h-[800px] object-contain [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
+            className="max-w-[80%] object-contain [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
             src={Profile}
             alt="Profile picture"
           />
@@ -79,7 +81,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
       {/* Sections */}
       <div className="min-h-screen py-20" id="about">

@@ -59,7 +59,7 @@
 
 @media (max-height: 600px) {
   .hide-on-landscape {
-    color: transparent;
+    visibility: hidden;
   }
   .landscape-settings {
     max-height: 400px;

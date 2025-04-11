@@ -7,11 +7,11 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false); // State pour afficher/masquer le menu
 
   return (
-    <header className="flex justify-between w-full bg-background-blue">
+    <header className="flex justify-between w-full mb-34">
       {/* Logo ou titre */}
-      <text className="hide-on-landscape text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
+      <span className="hide-on-landscape text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
         Chloe Dewasmes
-      </text>
+      </span>
 
       {/* Menu classique (Desktop) */}
       <div className="hidden md:flex text-light-grey text-xl gap-6">
