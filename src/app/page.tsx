@@ -57,14 +57,12 @@ export default function Home() {
               >
                 <div className="relative group">
                   <Linkedin
-                    className="text-light-grey group-hover:opacity-0"
-                    size={48}
+                    className="text-light-grey group-hover:opacity-0 icon-responsive"
                     style={{ strokeWidth: 0.5 }}
                   />
                   <Linkedin
-                    className="text-light-grey absolute top-0 left-0 opacity-0 group-hover:opacity-100"
-                    size={48}
-                    style={{ strokeWidth: 1.5 }}
+                    className="text-light-grey absolute top-0 left-0 opacity-0 group-hover:opacity-100 icon-responsive"
+                    style={{ strokeWidth: 1.2 }}
                   />
                 </div>
               </a>
@@ -75,14 +73,12 @@ export default function Home() {
               >
                 <div className="relative group">
                   <Github
-                    className="text-light-grey group-hover:opacity-0"
-                    size={48}
+                    className="text-light-grey group-hover:opacity-0 icon-responsive"
                     style={{ strokeWidth: 0.5 }}
                   />
                   <Github
-                    className="text-light-grey absolute top-0 left-0 opacity-0 group-hover:opacity-100"
-                    size={48}
-                    style={{ strokeWidth: 1.5 }}
+                    className="text-light-grey absolute top-0 left-0 opacity-0 group-hover:opacity-100 icon-responsive"
+                    style={{ strokeWidth: 1.2 }}
                   />
                 </div>
               </a>
