@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { LangProvider } from "./LangContext";
 
 // Import each weight of the Poppins font
 const PoppinsRegular = localFont({
@@ -42,7 +43,7 @@ export default function RootLayout({
       <body
         className={`${PoppinsRegular.variable} ${PoppinsBold.variable} ${PoppinsExtraBold.variable} antialiased`}
       >
-        {children}
+        <LangProvider>{children}</LangProvider>
       </body>
     </html>
   );

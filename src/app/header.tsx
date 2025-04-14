@@ -2,36 +2,46 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLang } from "./LangContext";
+import translations from "./translations";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false); // State pour afficher/masquer le menu
+  const [menuOpen, setMenuOpen] = useState(false); // Show-Hide menu
+  const { lang, toggleLang } = useLang();
+  const text = translations[lang].header;
 
   return (
-    <header className="flex justify-between w-full mb-34">
-      {/* Logo ou titre */}
-      <span className="hide-on-landscape text-light-grey text-lg sm:text-2xl font-semibold whitespace-nowrap mr-12">
-        Chloe Dewasmes
-      </span>
+    <header className="relative flex items-center justify-between w-full mb-34 h-[30px]">
+      {/* Burger menu */}
+      <button
+        className="[@media(min-aspect-ratio:1/1)]:hidden text-light-grey show-burger-menu"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <Menu size={28} />
+      </button>
 
-      {/* Menu classique (Desktop) */}
-      <div className="hidden [@media(min-aspect-ratio:1/1)]:flex text-light-grey text-xl gap-6 hide-desktop-menu">
+      {/* Desktop Menu */}
+      <div className="hidden [@media(min-aspect-ratio:1/1)]:flex items-center gap-8 hide-desktop-menu text-light-grey text-xl absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <span className="text-lg sm:text-2xl font-semibold whitespace-nowrap">
+          Chloé Dewasmes
+        </span>
         <a
           href="#about"
           className="hover:text-white hover:font-semibold hover:cursor-pointer"
         >
-          About
+          {text.about}
         </a>
         <a
           href="#skills"
           className="hover:text-white hover:font-semibold hover:cursor-pointer"
         >
-          Skills
+          {text.skills}
         </a>
         <a
           href="#projects"
           className="hover:text-white hover:font-semibold hover:cursor-pointer"
         >
-          Projects
+          {text.projects}
         </a>
         <a
           href="#contact"
@@ -41,48 +51,44 @@ export default function Header() {
         </a>
       </div>
 
-      {/* Menu Burger (Mobile) */}
       <button
-        className="content-end [@media(min-aspect-ratio:1/1)]:hidden text-light-grey show-burger-menu"
-        onClick={() => setMenuOpen(!menuOpen)}
+        onClick={toggleLang}
+        className="text-light-grey text-sm font-medium hover:text-white"
       >
-        <Menu size={32} />
+        {lang === "en" ? "FR" : "EN"}
       </button>
 
-      {/* Menu déroulant (Mobile) */}
+      {/* Menu déroulant (mobile) */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
-          {/* Conteneur du menu */}
           <div className="bg-background-blue flex flex-col items-center gap-6 text-light-grey text-lg py-8 w-full max-w-xs relative">
-            {/* Bouton de fermeture (croix) */}
             <button
               className="absolute top-4 right-4 text-white"
-              onClick={() => setMenuOpen(false)} // Ferme le menu au clic
+              onClick={() => setMenuOpen(false)}
             >
               <X size={16} />
             </button>
 
-            {/* Liens du menu */}
             <a
               href="#about"
               className="hover:text-white hover:font-semibold"
-              onClick={() => setMenuOpen(false)} // Ferme le menu au clic
+              onClick={() => setMenuOpen(false)}
             >
-              About
+              {text.about}
             </a>
             <a
               href="#skills"
               className="hover:text-white hover:font-semibold"
               onClick={() => setMenuOpen(false)}
             >
-              Skills
+              {text.skills}
             </a>
             <a
               href="#projects"
               className="hover:text-white hover:font-semibold"
               onClick={() => setMenuOpen(false)}
             >
-              Projects
+              {text.projects}
             </a>
             <a
               href="#contact"

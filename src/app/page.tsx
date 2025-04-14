@@ -1,3 +1,5 @@
+"use client";
+
 import Header from "./header";
 import Image from "next/image";
 import Profile from "./public/images/profile.png";
@@ -6,10 +8,14 @@ import Programming from "./public/images/programming.png";
 import Button from "./components/Button";
 import { Linkedin, Github } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
+import { useLang } from "./LangContext";
+import translations from "./translations";
 
 export default function Home() {
+  const { lang } = useLang();
+  const text = translations[lang].page;
   return (
-    <div className="bg-background-blue font-poppins px-6 sm:px-16">
+    <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4">
       <header className="h-[30px] flex items-center z-50 relative">
         <Header />
       </header>
@@ -28,11 +34,11 @@ export default function Home() {
         {/* Titre et liens */}
         <div className="text-light-grey text-center w-full [@media(min-aspect-ratio:1/1)]:w-1/2">
           <div className="w-full space-y-4 pb-clamp text-clamp [@media(min-aspect-ratio:1/1)]:text-left">
-            <p>Hello, I'm Chloe,</p>
-            <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
-              Web Developer
+            <p>{text.hero.greeting}</p>
+            <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-black bg-clip-text text-transparent text-wrap">
+              {text.hero.job}
             </h1>
-            <p>based in France.</p>
+            <p>{text.hero.location}</p>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start items-center gap-6">
@@ -41,7 +47,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button text="Resume" />
+              <Button text={text.hero.resumeButton} />
             </a>
             <div className="flex gap-4">
               <a
@@ -88,7 +94,7 @@ export default function Home() {
       {/* Sections */}
       <div className="min-h-screen py-20" id="about">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
-          about.
+          {text.about.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           <p>
@@ -104,7 +110,7 @@ export default function Home() {
 
       <div className="min-h-screen py-20" id="skills">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
-          skills.
+          {text.skills.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           Liste de mes compétences...
@@ -113,7 +119,7 @@ export default function Home() {
 
       <div className="min-h-screen py-20" id="projects">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
-          projects.
+          {text.projects.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           Présentation de mes projets...
@@ -130,8 +136,7 @@ export default function Home() {
           className="w-full sm:w-1/3 object-cover mx-auto"
         />
         <p className="mt-6 text-justify text-light-grey text-xl sm:text-2xl">
-          I am available to discuss any opportunities and projects. I’m eager to
-          hear from you!
+          {text.contact.opportunities}
         </p>
         <div className="mt-6 text-light-grey text-xl sm:text-2xl flex flex-col sm:flex-row gap-2 sm:gap-4">
           <p className="flex whitespace-nowrap">📧 chloe.dewasmes@itech.fr</p>
@@ -146,7 +151,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          © Icons by Lucide
+          {text.credits.lucide}
         </a>
         <a
           className="flex items-end bottom-0 text-dark-salmon"
@@ -154,7 +159,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          © Illustrations by Storyset
+          {text.credits.storyset}
         </a>
       </div>
 
