@@ -38,6 +38,9 @@ const config: Config = {
           },
         },
       },
+      screens: {
+        short: { raw: "(max-height: 750px)" },
+      },
     },
   },
   plugins: [addVariablesForColors],

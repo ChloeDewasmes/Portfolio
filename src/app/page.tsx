@@ -41,7 +41,7 @@ export default function Home() {
             <p>{text.hero.location}</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start items-center gap-6">
+          <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start items-center gap-6 short:flex-row">
             <a
               href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
               target="_blank"

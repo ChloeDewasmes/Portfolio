@@ -53,7 +53,7 @@ export default function Header() {
 
       <button
         onClick={toggleLang}
-        className="text-light-grey text-sm font-medium hover:text-white"
+        className="text-light-grey text-sm font-medium hover:text-white text-lg sm:text-xl"
       >
         {lang === "en" ? "FR" : "EN"}
       </button>
