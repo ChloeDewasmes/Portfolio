@@ -9,14 +9,14 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 
 export default function Home() {
   return (
-    <div className="bg-background-blue font-poppins px-6 py-4 sm:px-16 sm:py-10">
+    <div className="bg-background-blue font-poppins px-6 sm:px-16">
       <header className="h-[30px] flex items-center z-50 relative">
         <Header />
       </header>
 
-      <div className="flex flex-col items-center justify-center orientation h-[90vh]">
+      <div className="flex flex-col items-center justify-center [@media(min-aspect-ratio:1/1)]:flex-row-reverse h-[90vh]">
         {/* Contenu principal */}
-        <div className="flex justify-center py-6 md:w-1/2">
+        <div className="flex justify-center py-6 [@media(min-aspect-ratio:1/1)]:w-1/2">
           <Image
             className="object-contain min-h-[250px] max-w-[80%] max-h-[80vh] [@media(max-aspect-ratio:1/1)]:max-h-[50vh]"
             src={Profile}
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         {/* Titre et liens */}
-        <div className="text-light-grey text-center w-full md:w-1/2">
+        <div className="text-light-grey text-center w-full [@media(min-aspect-ratio:1/1)]:w-1/2">
           <div className="w-full space-y-4 pb-clamp text-clamp [@media(min-aspect-ratio:1/1)]:text-left">
             <p>Hello, I'm Chloe,</p>
             <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">

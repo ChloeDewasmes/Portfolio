@@ -80,9 +80,3 @@
     max-height: clamp(250px, 60vh, 800px);
   }
 }
-
-@media (orientation: landscape) {
-  .orientation {
-    flex-direction: row-reverse;
-  }
-}
