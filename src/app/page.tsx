@@ -9,24 +9,25 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 
 export default function Home() {
   return (
-    <div className="bg-background-blue min-h-screen font-poppins px-6 py-4 sm:px-12 sm:py-6">
-      <header className="h-[30px] flex items-center z-10 relative">
+    <div className="bg-background-blue font-poppins px-6 py-4 sm:px-16 sm:py-10">
+      <header className="h-[30px] flex items-center z-50 relative">
         <Header />
       </header>
 
-      <main className="flex flex-col [@media(min-aspect-ratio:1/1)]:flex-row-reverse items-center justify-center h-[calc(100vh-60px)]">
+      <div className="flex flex-col items-center justify-center orientation h-[90vh]">
         {/* Contenu principal */}
-        <div className="flex justify-center py-6 h-full">
+        <div className="flex justify-center py-6 md:w-1/2">
           <Image
-            className="max-w-[80%] object-contain [@media(max-aspect-ratio:1/1)]:w-[300px] landscape-settings"
+            className="object-contain min-h-[250px] max-w-[80%] max-h-[80vh] [@media(max-aspect-ratio:1/1)]:max-h-[50vh]"
             src={Profile}
             alt="Profile picture"
+            priority
           />
         </div>
 
         {/* Titre et liens */}
-        <div className="text-light-grey text-center w-full md:w-1/2 max-h-[90vh] mt-6">
-          <div className="md:text-left w-full space-y-4 pb-clamp text-clamp landscape-settings">
+        <div className="text-light-grey text-center w-full md:w-1/2">
+          <div className="w-full space-y-4 pb-clamp text-clamp [@media(min-aspect-ratio:1/1)]:text-left">
             <p>Hello, I'm Chloe,</p>
             <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-dark-grey bg-clip-text text-transparent text-wrap">
               Web Developer
@@ -82,7 +83,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       {/* Sections */}
       <div className="min-h-screen py-20" id="about">

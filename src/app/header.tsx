@@ -14,7 +14,7 @@ export default function Header() {
       </span>
 
       {/* Menu classique (Desktop) */}
-      <div className="hidden md:flex text-light-grey text-xl gap-6">
+      <div className="hidden [@media(min-aspect-ratio:1/1)]:flex text-light-grey text-xl gap-6 hide-desktop-menu">
         <a
           href="#about"
           className="hover:text-white hover:font-semibold hover:cursor-pointer"
@@ -43,7 +43,7 @@ export default function Header() {
 
       {/* Menu Burger (Mobile) */}
       <button
-        className="content-end md:hidden text-light-grey "
+        className="content-end [@media(min-aspect-ratio:1/1)]:hidden text-light-grey show-burger-menu"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <Menu size={32} />
