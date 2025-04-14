@@ -39,7 +39,9 @@ const config: Config = {
         },
       },
       screens: {
-        short: { raw: "(max-height: 750px)" },
+        "portrait-tall": {
+          raw: "(max-aspect-ratio: 1/1) and (min-height: 751px)",
+        },
       },
     },
   },

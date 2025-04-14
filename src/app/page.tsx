@@ -41,7 +41,7 @@ export default function Home() {
             <p>{text.hero.location}</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:justify-center md:justify-start items-center gap-6 short:flex-row">
+          <div className="flex flex-row portrait-tall:flex-col items-center gap-6 [@media(max-aspect-ratio:1/1)]:justify-center">
             <a
               href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
               target="_blank"
