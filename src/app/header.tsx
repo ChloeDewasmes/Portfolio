@@ -30,16 +30,16 @@ export default function Header() {
       </button>
 
       {/* Desktop Menu */}
-      <div className="hidden [@media(min-aspect-ratio:1/1)]:flex items-center text-light-grey text-xl gap-6 hide-desktop-menu justify-center w-full">
+      <div className="hidden [@media(min-aspect-ratio:1/1)]:flex items-center text-light-grey gap-6 hide-desktop-menu justify-center w-full">
         {/* Name on left */}
         <div className="absolute left-0">
-          <span className="text-lg sm:text-xl font-semibold">
+          <span className="text-md lg:text-xl font-semibold">
             Chloé Dewasmes
           </span>
         </div>
 
         {/* Navigation links centered */}
-        <div className="flex gap-6 ml-20">
+        <div className="flex gap-6 ml-20 text-xl">
           <a
             href="#about"
             className="hover:text-white hover:font-semibold hover:cursor-pointer"
@@ -70,7 +70,7 @@ export default function Header() {
       {/* Lang Button */}
       <button
         onClick={toggleLang}
-        className="text-light-grey text-sm font-medium hover:text-white hover:font-semibold text-lg sm:text-xl"
+        className="text-light-grey hover:text-white hover:font-semibold text-md lg:text-xl"
       >
         {lang === "en" ? "FR" : "EN"}
       </button>
