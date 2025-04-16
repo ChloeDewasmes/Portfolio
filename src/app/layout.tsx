@@ -10,6 +10,12 @@ const PoppinsRegular = localFont({
   weight: "400", // Regular
 });
 
+const PoppinsMedium = localFont({
+  src: "./public/fonts/Poppins-Medium.ttf",
+  variable: "--poppins-medium",
+  weight: "500", // Medium
+});
+
 const PoppinsBold = localFont({
   src: "./public/fonts/Poppins-Bold.ttf",
   variable: "--poppins-bold",
@@ -41,7 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${PoppinsRegular.variable} ${PoppinsBold.variable} ${PoppinsExtraBold.variable} antialiased`}
+        className={`${PoppinsRegular.variable} ${PoppinsMedium.variable} ${PoppinsBold.variable} ${PoppinsExtraBold.variable} antialiased`}
       >
         <LangProvider>{children}</LangProvider>
       </body>
