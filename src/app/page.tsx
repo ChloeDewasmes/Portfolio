@@ -2,12 +2,13 @@
 
 import Header from "./header";
 import Image from "next/image";
-import Profile from "./public/images/profile.png";
-import Contact from "./public/images/contact.png";
-import Programming from "./public/images/programming.png";
+import Profile from "../../public/images/profile.png";
+import Contact from "../../public/images/contact.png";
+import Programming from "../../public/images/programming.png";
 import Button from "./components/Button";
 import { Linkedin, Github } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
+import { AnimatedStack } from "./components/animated-stack";
 import { useLang } from "./LangContext";
 import translations from "./translations";
 
@@ -19,7 +20,7 @@ export default function Home() {
   const { lang } = useLang();
   const text = translations[lang].page;
   return (
-    <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4">
+    <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4 overflow-hidden">
       <header className="h-[30px] flex items-center z-50 relative">
         <Header />
       </header>
@@ -29,7 +30,7 @@ export default function Home() {
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            delay: 0.3,
+            delay: 0.15,
             duration: 0.8,
             ease: "easeInOut",
           }}
@@ -125,8 +126,18 @@ export default function Home() {
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
           {text.skills.title}
         </h1>
-        <div className="text-light-grey text-xl sm:text-2xl space-y-6">
-          Liste de mes compétences...
+        <div className="flex">
+          <div>
+            <div className="text-light-grey text-xl sm:text-2xl space-y-6 w-[40vw]">
+              {text.skills.description}
+            </div>
+            <AnimatedStack />
+          </div>
+          <Image
+            src={Programming}
+            alt="Programming illustration"
+            className="hidden sm:flex w-[40vw] max-w-[500px] mx-auto"
+          />
         </div>
       </div>
 

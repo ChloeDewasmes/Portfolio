@@ -11,7 +11,7 @@ export default function Header() {
   const text = translations[lang].header;
 
   return (
-    <header className="relative w-full mb-34 h-[30px] flex items-center justify-between">
+    <header className="relative w-full mb-34 flex items-center justify-between">
       {/* Burger menu */}
       <button
         className="[@media(min-aspect-ratio:1/1)]:hidden text-light-grey show-burger-menu group"

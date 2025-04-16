@@ -13,7 +13,11 @@ const translations = {
         resumeButton: "Resume",
       },
       about: { title: "about." },
-      skills: { title: "skills." },
+      skills: {
+        title: "skills.",
+        description:
+          "Versatile and passionate about learning new things, web and mobile development allows me to combine creativity and technical skills while constantly taking on new challenges. 🚀",
+      },
       projects: { title: "projects." },
       contact: {
         title: "contact.",
@@ -40,7 +44,11 @@ const translations = {
         resumeButton: "CV",
       },
       about: { title: "à propos." },
-      skills: { title: "compétences." },
+      skills: {
+        title: "compétences.",
+        description:
+          "Polyvalente et étant passionnée par l’apprentissage de nouvelles choses, le développement web et mobile me permet de combiner créativité et technique, en relevant sans cesse de nouveaux défis. 🚀",
+      },
       projects: { title: "projets." },
       contact: {
         title: "contact.",
@@ -48,7 +56,7 @@ const translations = {
           "Je suis disponible pour échanger au sujet de tout types d'opportunités ou de projets. N'hésitez pas à me contacter !",
       },
       credits: {
-        lucide: "© Icone par Lucide",
+        lucide: "© Icônes par Lucide",
         storyset: "© Illustrations par Storyset",
       },
     },

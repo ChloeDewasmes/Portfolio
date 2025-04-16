@@ -5,25 +5,25 @@ import { LangProvider } from "./LangContext";
 
 // Import each weight of the Poppins font
 const PoppinsRegular = localFont({
-  src: "./public/fonts/Poppins-Regular.ttf",
+  src: "../fonts/Poppins-Regular.ttf",
   variable: "--poppins-regular",
   weight: "400", // Regular
 });
 
 const PoppinsMedium = localFont({
-  src: "./public/fonts/Poppins-Medium.ttf",
+  src: "../fonts/Poppins-Medium.ttf",
   variable: "--poppins-medium",
   weight: "500", // Medium
 });
 
 const PoppinsBold = localFont({
-  src: "./public/fonts/Poppins-Bold.ttf",
+  src: "../fonts/Poppins-Bold.ttf",
   variable: "--poppins-bold",
   weight: "700", // Bold
 });
 
 const PoppinsExtraBold = localFont({
-  src: "./public/fonts/Poppins-ExtraBold.ttf",
+  src: "../fonts/Poppins-ExtraBold.ttf",
   variable: "--poppins-extrabold",
   weight: "800", // Extra Bold
 });
