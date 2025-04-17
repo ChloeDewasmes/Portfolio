@@ -6,6 +6,7 @@ import Profile from "../../public/images/profile.png";
 import Contact from "../../public/images/contact.png";
 import Programming from "../../public/images/programming.png";
 import Button from "./components/Button";
+import Project from "./components/Project";
 import { Linkedin, Github } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
@@ -19,6 +20,36 @@ import { AuroraBackground } from "./components/aurora-background";
 export default function Home() {
   const { lang } = useLang();
   const text = translations[lang].page;
+
+  const projectsData = [
+    {
+      name: "Les Petits Explorateurs",
+      date: text.projects.dateLPE,
+      description: text.projects.lpe,
+    },
+    {
+      name: "SafeHub",
+      date: text.projects.dateSafehub,
+      description: text.projects.safehub,
+    },
+    {
+      name: "Portfolio",
+      date: text.projects.datePortfolio,
+      description: text.projects.portfolio,
+    },
+  ];
+
+  const projects = projectsData.map((data, index) => {
+    return (
+      <Project
+        key={index}
+        name={data.name}
+        date={data.date}
+        desc={data.description}
+      />
+    );
+  });
+
   return (
     <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4 overflow-hidden">
       <header className="h-[30px] flex items-center z-50 relative">
@@ -126,9 +157,9 @@ export default function Home() {
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
           {text.skills.title}
         </h1>
-        <div className="flex">
+        <div className="flex items-center">
           <div>
-            <div className="text-light-grey text-xl sm:text-2xl space-y-6 w-[40vw]">
+            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 w-[40vw]">
               {text.skills.description}
             </div>
             <AnimatedStack />
@@ -146,7 +177,8 @@ export default function Home() {
           {text.projects.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
-          Présentation de mes projets...
+          {text.projects.description}
+          <div className="flex gap-24 mt-8">{projects}</div>
         </div>
       </div>
 

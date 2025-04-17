@@ -18,7 +18,17 @@ const translations = {
         description:
           "Versatile and passionate about learning new things, web and mobile development allows me to combine creativity and technical skills while constantly taking on new challenges. 🚀",
       },
-      projects: { title: "projects." },
+      projects: {
+        title: "projects.",
+        description: "Here are a few projects I maded over the last year:",
+        dateLPE: "March 2024",
+        lpe: "app",
+        dateSafehub: "May-September 2024",
+        safehub: "blablasafehub",
+        datePortfolio: "April 2025",
+        portfolio: "blablaportfolio",
+        goButton: "Go",
+      },
       contact: {
         title: "contact.",
         opportunities:
@@ -49,7 +59,17 @@ const translations = {
         description:
           "Polyvalente et étant passionnée par l’apprentissage de nouvelles choses, le développement web et mobile me permet de combiner créativité et technique, en relevant sans cesse de nouveaux défis. 🚀",
       },
-      projects: { title: "projets." },
+      projects: {
+        title: "projets.",
+        description: "Voici quelques projets réalisés :",
+        dateLPE: "Mars 2024",
+        lpe: "app",
+        dateSafehub: "Mai-Septembre 2024",
+        safehub: "blablasafehub",
+        datePortfolio: "Avril 2025",
+        portfolio: "blablaportfolio",
+        goButton: "Voir",
+      },
       contact: {
         title: "contact.",
         opportunities:
