@@ -22,11 +22,11 @@ const translations = {
         title: "projects.",
         description: "Here are a few projects I maded over the last year:",
         dateLPE: "March 2024",
-        lpe: "app",
+        lpe: "Mobile Application",
         dateSafehub: "May-September 2024",
-        safehub: "blablasafehub",
+        safehub: "Website, Mobile App, Web App",
         datePortfolio: "April 2025",
-        portfolio: "blablaportfolio",
+        portfolio: "Website",
         goButton: "Go",
       },
       contact: {
@@ -38,6 +38,11 @@ const translations = {
         lucide: "© Icons by Lucide",
         storyset: "© Illustrations by Storyset",
       },
+    },
+    projects: {
+      lpe: {},
+      safehub: {},
+      portfolio: {},
     },
   },
   fr: {
@@ -63,11 +68,11 @@ const translations = {
         title: "projets.",
         description: "Voici quelques projets réalisés :",
         dateLPE: "Mars 2024",
-        lpe: "app",
+        lpe: "Application Mobile",
         dateSafehub: "Mai-Septembre 2024",
-        safehub: "blablasafehub",
+        safehub: "Site web, Application mobile et Web App",
         datePortfolio: "Avril 2025",
-        portfolio: "blablaportfolio",
+        portfolio: "Site web",
         goButton: "Voir",
       },
       contact: {
@@ -79,6 +84,11 @@ const translations = {
         lucide: "© Icônes par Lucide",
         storyset: "© Illustrations par Storyset",
       },
+    },
+    projects: {
+      lpe: {},
+      safehub: {},
+      portfolio: {},
     },
   },
 };

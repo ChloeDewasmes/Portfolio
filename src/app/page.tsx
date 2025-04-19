@@ -5,6 +5,9 @@ import Image from "next/image";
 import Profile from "../../public/images/profile.png";
 import Contact from "../../public/images/contact.png";
 import Programming from "../../public/images/programming.png";
+import LPE from "../../public/images/LPE.png";
+import Safehub from "../../public/images/safehub.png";
+import Portfolio from "../../public/images/portfolio.png";
 import Button from "./components/Button";
 import Project from "./components/Project";
 import { Linkedin, Github } from "lucide-react";
@@ -23,19 +26,25 @@ export default function Home() {
 
   const projectsData = [
     {
+      src: LPE,
       name: "Les Petits Explorateurs",
       date: text.projects.dateLPE,
       description: text.projects.lpe,
+      stack: "React Native",
     },
     {
+      src: Safehub,
       name: "SafeHub",
       date: text.projects.dateSafehub,
       description: text.projects.safehub,
+      stack: "Next",
     },
     {
+      src: Portfolio,
       name: "Portfolio",
       date: text.projects.datePortfolio,
       description: text.projects.portfolio,
+      stack: "React",
     },
   ];
 
@@ -43,9 +52,11 @@ export default function Home() {
     return (
       <Project
         key={index}
+        src={data.src}
         name={data.name}
         date={data.date}
         desc={data.description}
+        stack={data.stack}
       />
     );
   });
@@ -178,7 +189,9 @@ export default function Home() {
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           {text.projects.description}
-          <div className="flex gap-24 mt-8">{projects}</div>
+          <div className="flex flex-wrap justify-center mt-8 gap-40">
+            {projects}
+          </div>
         </div>
       </div>
 
