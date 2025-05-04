@@ -5,11 +5,8 @@ import Image from "next/image";
 import Profile from "../../public/images/profile.png";
 import Contact from "../../public/images/contact.png";
 import Programming from "../../public/images/programming.png";
-import LPE from "../../public/images/LPE.png";
-import Safehub from "../../public/images/safehub.png";
-import Portfolio from "../../public/images/portfolio.png";
 import Button from "./components/Button";
-import Project from "./components/Project";
+import ProjectCarousel from "./components/ProjectCarousel";
 import { Linkedin, Github } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
@@ -23,43 +20,6 @@ import { AuroraBackground } from "./components/aurora-background";
 export default function Home() {
   const { lang } = useLang();
   const text = translations[lang].page;
-
-  const projectsData = [
-    {
-      src: LPE,
-      name: "Les Petits Explorateurs",
-      date: text.projects.dateLPE,
-      description: text.projects.lpe,
-      stack: "React Native",
-    },
-    {
-      src: Safehub,
-      name: "SafeHub",
-      date: text.projects.dateSafehub,
-      description: text.projects.safehub,
-      stack: "Next",
-    },
-    {
-      src: Portfolio,
-      name: "Portfolio",
-      date: text.projects.datePortfolio,
-      description: text.projects.portfolio,
-      stack: "React",
-    },
-  ];
-
-  const projects = projectsData.map((data, index) => {
-    return (
-      <Project
-        key={index}
-        src={data.src}
-        name={data.name}
-        date={data.date}
-        desc={data.description}
-        stack={data.stack}
-      />
-    );
-  });
 
   return (
     <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4 overflow-hidden">
@@ -154,13 +114,31 @@ export default function Home() {
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           <p>
-            💻 Fullstack Developer passionnée par le design et l'expérience
-            utilisateur.
+            💻 Développeuse Fullstack, j’associe mes compétences en résolution
+            de problèmes et en logique technique à mon goût pour le design et
+            l’expérience utilisateur. Pour moi, le développement web et mobile
+            est un domaine en perpétuelle évolution, offrant des défis à la fois
+            créatifs et techniques que je prends plaisir à relever chaque jour.
           </p>
           <p>
-            🎓 Ancienne ingénieure chimiste reconvertie dans le développement.
+            🔬 Mon parcours d'ingénieure en chimie des formulations m’a permis
+            d'acquérir une solide expérience en gestion de projets et en
+            création de solutions innovantes. Aujourd'hui, je mets ces
+            compétences au service du développement web et mobile, où je trouve
+            un terrain d’expression alliant rigueur scientifique, créativité
+            technique et sens du produit.
           </p>
-          <p>🔍 À la recherche de nouvelles opportunités.</p>
+          <p>
+            🔍 Aujourd’hui, je recherche une alternance ou un poste en CDD/CDI
+            dans le développement web ou mobile, avec une forte appétence pour
+            les projets techniques, produits ou créatifs. Pluridisciplinaire et
+            toujours curieuse de découvrir de nouveaux domaines, je m’épanouis
+            dans des projets où je peux mobiliser les différentes facettes de
+            mon parcours — technique, scientifique, créatif ou orienté produit.
+            Ce qui m’anime : contribuer à des projets concrets, exigeants et
+            porteurs de sens, où l’impact utilisateur, la qualité et la
+            dimension technique sont au cœur des priorités.
+          </p>
         </div>
       </div>
 
@@ -190,7 +168,7 @@ export default function Home() {
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           {text.projects.description}
           <div className="flex flex-wrap justify-center mt-8 gap-40">
-            {projects}
+            <ProjectCarousel />
           </div>
         </div>
       </div>
