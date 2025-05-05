@@ -27,6 +27,8 @@ const translations = {
         safehub: "Website, Mobile App, Web App",
         datePortfolio: "April 2025",
         portfolio: "Website",
+        dateReadingTracker: "April 2025",
+        readingTracker: "Mobile App",
         goButton: "Go",
       },
       contact: {
@@ -73,6 +75,8 @@ const translations = {
         safehub: "Site web, Application mobile et Web App",
         datePortfolio: "Avril 2025",
         portfolio: "Site web",
+        dateReadingTracker: "Avril 2025",
+        readingTracker: "Application mobile",
         goButton: "Voir",
       },
       contact: {

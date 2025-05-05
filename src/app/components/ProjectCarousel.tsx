@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import LPE from "../../../public/images/LPE.png";
 import Safehub from "../../../public/images/safehub.png";
 import Portfolio from "../../../public/images/portfolio.png";
+import readingTracker from "../../../public/images/readingTracker.png";
 import Button from "./Button";
 import { useLang } from "../LangContext";
 import translations from "../translations";
@@ -23,7 +24,7 @@ export default function ProjectCarousel() {
       name: "Les Petits Explorateurs",
       date: text.projects.dateLPE,
       description: text.projects.lpe,
-      stack: "React Native",
+      stack: "React Native, Node.js, Express, Redux, MongoDB",
     },
     {
       id: 2,
@@ -31,7 +32,7 @@ export default function ProjectCarousel() {
       name: "SafeHub",
       date: text.projects.dateSafehub,
       description: text.projects.safehub,
-      stack: "Next",
+      stack: "Typescript, React, React Native, Next, MongoDB",
     },
     {
       id: 3,
@@ -39,7 +40,15 @@ export default function ProjectCarousel() {
       name: "Portfolio",
       date: text.projects.datePortfolio,
       description: text.projects.portfolio,
-      stack: "React",
+      stack: "Typescript, React, TailwindCSS",
+    },
+    {
+      id: 4,
+      src: readingTracker,
+      name: "Reading Tracker",
+      date: text.projects.dateReadingTracker,
+      description: text.projects.readingTracker,
+      stack: "React Native, Node.js, Express, MongoDB",
     },
   ];
 
@@ -50,16 +59,15 @@ export default function ProjectCarousel() {
       centeredSlides={true}
       slidesPerView={3}
       coverflowEffect={{
-        rotate: -10,
-        stretch: -20,
+        rotate: -12,
+        stretch: -40,
         depth: 100,
-        modifier: 2,
+        modifier: 2.5,
         slideShadows: false,
       }}
       loop={true}
       navigation
       pagination={{ clickable: true }}
-      className="w-full"
     >
       {projects.map((project) => (
         <SwiperSlide
@@ -67,7 +75,7 @@ export default function ProjectCarousel() {
           className="flex justify-center items-center"
         >
           <div className="flex flex-col items-center">
-            <div className="relative group h-[40vh] w-[30vw] overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+            <div className="relative group h-full w-[30vw] rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
               <Image
                 src={project.src}
                 alt={project.name}
@@ -81,9 +89,13 @@ export default function ProjectCarousel() {
                 <p>{project.stack}</p>
               </motion.div>
             </div>
-            <h3 className="mt-4 text-xl font-bold">{project.name}</h3>
-            <p className="text-sm text-gray-500">{project.date}</p>
-            <Button text={text.projects.goButton} />
+            <h3 className="mt-4 text-xl font-bold text-light-grey">
+              {project.name}
+            </h3>
+            <p className="mb-4 text-sm text-gray-500">{project.date}</p>
+            <div className="mb-14">
+              <Button text={text.projects.goButton} />
+            </div>
           </div>
         </SwiperSlide>
       ))}

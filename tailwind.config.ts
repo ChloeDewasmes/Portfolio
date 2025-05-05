@@ -23,11 +23,14 @@ const config: Config = {
         "background-blue": "#1B1F24",
         "light-grey": "#D9D9D9",
         "dark-grey": "#737373",
+        "light-salmon": "#FFD4D0",
         "salmon-pink": "#FF6F61",
         "dark-salmon": "#99433A",
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        spinY: "spinY 1s linear infinite",
+        spinX: "spinX 1s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -37,6 +40,14 @@ const config: Config = {
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+        },
+        spinY: {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+        spinX: {
+          "0%": { transform: "rotateX(0deg)" },
+          "100%": { transform: "rotateX(360deg)" },
         },
       },
       screens: {

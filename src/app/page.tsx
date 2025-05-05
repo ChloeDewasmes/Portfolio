@@ -12,10 +12,13 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
 import { useLang } from "./LangContext";
 import translations from "./translations";
+import EmojiCycle from "./components/EmojiCycle";
+import HoverEmoji from "./components/EmojiHover";
 
 import { motion } from "motion/react";
 import React from "react";
 import { AuroraBackground } from "./components/aurora-background";
+import { AnimatedEmoji } from "./components/animated-emoji";
 
 export default function Home() {
   const { lang } = useLang();
@@ -109,36 +112,58 @@ export default function Home() {
 
       {/* Sections */}
       <div className="min-h-screen py-20" id="about">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
+        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black">
           {text.about.title}
         </h1>
-        <div className="text-light-grey text-xl sm:text-2xl space-y-6">
-          <p>
-            💻 Développeuse Fullstack, j’associe mes compétences en résolution
-            de problèmes et en logique technique à mon goût pour le design et
-            l’expérience utilisateur. Pour moi, le développement web et mobile
-            est un domaine en perpétuelle évolution, offrant des défis à la fois
-            créatifs et techniques que je prends plaisir à relever chaque jour.
-          </p>
-          <p>
-            🔬 Mon parcours d'ingénieure en chimie des formulations m’a permis
-            d'acquérir une solide expérience en gestion de projets et en
-            création de solutions innovantes. Aujourd'hui, je mets ces
-            compétences au service du développement web et mobile, où je trouve
-            un terrain d’expression alliant rigueur scientifique, créativité
-            technique et sens du produit.
-          </p>
-          <p>
-            🔍 Aujourd’hui, je recherche une alternance ou un poste en CDD/CDI
-            dans le développement web ou mobile, avec une forte appétence pour
-            les projets techniques, produits ou créatifs. Pluridisciplinaire et
-            toujours curieuse de découvrir de nouveaux domaines, je m’épanouis
-            dans des projets où je peux mobiliser les différentes facettes de
-            mon parcours — technique, scientifique, créatif ou orienté produit.
-            Ce qui m’anime : contribuer à des projets concrets, exigeants et
-            porteurs de sens, où l’impact utilisateur, la qualité et la
-            dimension technique sont au cœur des priorités.
-          </p>
+        <div className="flex items-center justify-center my-12">
+          <div className="flex flex-col items-center justify-center bg-light-salmon text-xl text-center text-black font-semibold h-full w-min-[55vw] rounded-2xl border-4 border-salmon-pink p-8">
+            <p>
+              Actuellement en recherche d'une alternance pour Juillet 2025 ou
+              d’un poste en CDD/CDI.
+            </p>
+            <p>Disponible de suite.</p>
+          </div>
+        </div>
+        <div className="text-light-grey text-3xl sm:text-3xl space-y-6 w-max-[60vw]">
+          <div className="text-lg leading-relaxed text-white">
+            ‣{" "}
+            <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent mt-6">
+              Développeuse Fullstack
+            </strong>
+            , j’associe mes compétences en{" "}
+            <AnimatedEmoji
+              word="résolution de problèmes "
+              emoji="🧠"
+              animation="bump"
+            />
+            , en{" "}
+            <AnimatedEmoji
+              word="logique technique"
+              emoji="🔧"
+              animation="spinZ"
+            />{" "}
+            à mon goût pour le design et l’expérience utilisateur.
+            <br />
+            ‣ Pour moi, le développement web et mobile est un domaine en
+            évolution perpétuelle
+            <EmojiCycle />, offrant des défis{" "}
+            <AnimatedEmoji
+              word="créatifs"
+              emoji="🎨"
+              animation="bump"
+            /> et{" "}
+            <AnimatedEmoji word="techniques" emoji="⚙️" animation="spinZ" /> que
+            je prends plaisir à relever.
+            <br />‣ Ce qui m’anime : contribuer à des projets{" "}
+            <AnimatedEmoji word="concrets" emoji="🌿" animation="bump" />,{" "}
+            <AnimatedEmoji word="exigeants" emoji="🛰️" animation="bump" /> et{" "}
+            <AnimatedEmoji
+              word="porteurs de sens"
+              emoji="🌍"
+              animation="spinY"
+            />
+            .
+          </div>
         </div>
       </div>
 
@@ -167,9 +192,9 @@ export default function Home() {
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           {text.projects.description}
-          <div className="flex flex-wrap justify-center mt-8 gap-40">
-            <ProjectCarousel />
-          </div>
+        </div>
+        <div className="mt-8">
+          <ProjectCarousel />
         </div>
       </div>
 
