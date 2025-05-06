@@ -29,6 +29,7 @@ const config: Config = {
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        border: "borderShift 3s linear infinite",
         spinY: "spinY 1s linear infinite",
         spinX: "spinX 1s linear infinite",
       },
@@ -40,6 +41,10 @@ const config: Config = {
           to: {
             backgroundPosition: "350% 50%, 350% 50%",
           },
+        },
+        borderShift: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "40px 40px" },
         },
         spinY: {
           "0%": { transform: "rotateY(0deg)" },

@@ -12,8 +12,6 @@ import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
 import { useLang } from "./LangContext";
 import translations from "./translations";
-import EmojiCycle from "./components/EmojiCycle";
-import HoverEmoji from "./components/EmojiHover";
 
 import { motion } from "motion/react";
 import React from "react";
@@ -115,8 +113,8 @@ export default function Home() {
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black">
           {text.about.title}
         </h1>
-        <div className="flex items-center justify-center my-12">
-          <div className="flex flex-col items-center justify-center bg-light-salmon text-xl text-center text-black font-semibold h-full w-min-[55vw] rounded-2xl border-4 border-salmon-pink p-8">
+        <div className="flex items-center justify-center my-12 min-w-[55vw]">
+          <div className="relative z-10 flex flex-col items-center justify-center bg-dark-salmon text-xl text-center text-white rounded-xl h-full p-8">
             <p>
               Actuellement en recherche d'une alternance pour Juillet 2025 ou
               d’un poste en CDD/CDI.
@@ -124,45 +122,39 @@ export default function Home() {
             <p>Disponible de suite.</p>
           </div>
         </div>
-        <div className="text-light-grey text-3xl sm:text-3xl space-y-6 w-max-[60vw]">
-          <div className="text-lg leading-relaxed text-white">
-            ‣{" "}
-            <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent mt-6">
-              Développeuse Fullstack
-            </strong>
-            , j’associe mes compétences en{" "}
-            <AnimatedEmoji
-              word="résolution de problèmes "
-              emoji="🧠"
-              animation="bump"
-            />
-            , en{" "}
-            <AnimatedEmoji
-              word="logique technique"
-              emoji="🔧"
-              animation="spinZ"
-            />{" "}
-            à mon goût pour le design et l’expérience utilisateur.
-            <br />
-            ‣ Pour moi, le développement web et mobile est un domaine en
-            évolution perpétuelle
-            <EmojiCycle />, offrant des défis{" "}
-            <AnimatedEmoji
-              word="créatifs"
-              emoji="🎨"
-              animation="bump"
-            /> et{" "}
-            <AnimatedEmoji word="techniques" emoji="⚙️" animation="spinZ" /> que
-            je prends plaisir à relever.
-            <br />‣ Ce qui m’anime : contribuer à des projets{" "}
-            <AnimatedEmoji word="concrets" emoji="🌿" animation="bump" />,{" "}
-            <AnimatedEmoji word="exigeants" emoji="🛰️" animation="bump" /> et{" "}
-            <AnimatedEmoji
-              word="porteurs de sens"
-              emoji="🌍"
-              animation="spinY"
-            />
-            .
+        <div className="text-light-grey space-y-6">
+          <div className="text-lg leading-relaxed text-white text-xl sm:text-2xl w-[40vw]">
+            <p className="mb-8 text-justify">
+              <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent">
+                Développeuse Fullstack
+              </strong>
+              , j’associe mes compétences en{" "}
+              <AnimatedEmoji
+                word="résolution de problèmes"
+                emoji="🧠"
+                animation="bump"
+              />
+              , en{" "}
+              <AnimatedEmoji
+                word="logique technique"
+                emoji="⚙️"
+                animation="spinZ"
+              />{" "}
+              à mon goût pour le{" "}
+              <AnimatedEmoji word="design" emoji="🎨" animation="bump" /> et
+              l’expérience utilisateur.
+            </p>
+            <p>
+              Ce qui m’anime : contribuer à des projets{" "}
+              <AnimatedEmoji word="concrets" emoji="🌿" animation="bump" />,{" "}
+              <AnimatedEmoji word="exigeants" emoji="🛰️" animation="bump" /> et{" "}
+              <AnimatedEmoji
+                word="porteurs de sens"
+                emoji="🌍"
+                animation="spinY"
+              />
+              .
+            </p>
           </div>
         </div>
       </div>

@@ -54,13 +54,13 @@ export const AnimatedEmoji = ({
                 y: [-2, 0, -2],
                 transition: { duration: 0.3, repeat: Infinity },
               }
-            : hovered && animation === "spinY" // Ajouter l'animation de rotation ici
+            : hovered && animation === "spinY"
             ? {
-                rotateY: [0, 360], // Effectuer une rotation complète
+                rotateY: [0, 360],
                 transition: {
-                  duration: 5, // Durée de 5 secondes pour une rotation lente
-                  repeat: Infinity, // Répéter indéfiniment
-                  ease: "linear", // Rotation linéaire (sans accélération ni décélération)
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "linear",
                 },
               }
             : {}
