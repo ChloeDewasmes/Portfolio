@@ -32,6 +32,8 @@ const config: Config = {
         border: "borderShift 3s linear infinite",
         spinY: "spinY 1s linear infinite",
         spinX: "spinX 1s linear infinite",
+        marquee: "marquee 20s linear infinite",
+        "marquee-reverse": "marquee-reverse 20s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -54,12 +56,25 @@ const config: Config = {
           "0%": { transform: "rotateX(0deg)" },
           "100%": { transform: "rotateX(360deg)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       screens: {
         "portrait-tall": {
           raw: "(max-aspect-ratio: 1/1) and (min-height: 751px)",
         },
       },
+    },
+  },
+  variants: {
+    extend: {
+      animation: ["hover"],
     },
   },
   plugins: [addVariablesForColors],

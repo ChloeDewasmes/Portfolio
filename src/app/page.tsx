@@ -7,9 +7,10 @@ import Contact from "../../public/images/contact.png";
 import Programming from "../../public/images/programming.png";
 import Button from "./components/Button";
 import ProjectCarousel from "./components/ProjectCarousel";
-import { Linkedin, Github } from "lucide-react";
+import { Linkedin, Github, HardDriveDownload } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
+import QualitiesMarquee from "./components/qualitiesMarquee";
 import { useLang } from "./LangContext";
 import translations from "./translations";
 
@@ -114,7 +115,7 @@ export default function Home() {
           {text.about.title}
         </h1>
         <div className="flex items-center justify-center my-12 min-w-[55vw]">
-          <div className="relative z-10 flex flex-col items-center justify-center bg-dark-salmon text-xl text-center text-white rounded-xl h-full p-8">
+          <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white rounded-xl h-full p-4 lg:p-8">
             <p>
               Actuellement en recherche d'une alternance pour Juillet 2025 ou
               d’un poste en CDD/CDI.
@@ -122,9 +123,9 @@ export default function Home() {
             <p>Disponible de suite.</p>
           </div>
         </div>
-        <div className="text-light-grey space-y-6">
-          <div className="text-lg leading-relaxed text-white text-xl sm:text-2xl w-[40vw]">
-            <p className="mb-8 text-justify">
+        <div className="flex items-center justify-center text-light-grey mb-12 lg:mb-28">
+          <div className="leading-relaxed text-white text-xl sm:text-2xl">
+            <p className="mb-8 text-center">
               <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent">
                 Développeuse Fullstack
               </strong>
@@ -144,7 +145,7 @@ export default function Home() {
               <AnimatedEmoji word="design" emoji="🎨" animation="bump" /> et
               l’expérience utilisateur.
             </p>
-            <p>
+            <p className="text-center">
               Ce qui m’anime : contribuer à des projets{" "}
               <AnimatedEmoji word="concrets" emoji="🌿" animation="bump" />,{" "}
               <AnimatedEmoji word="exigeants" emoji="🛰️" animation="bump" /> et{" "}
@@ -156,6 +157,9 @@ export default function Home() {
               .
             </p>
           </div>
+        </div>
+        <div className="my-12 mx-auto">
+          <QualitiesMarquee />
         </div>
       </div>
 
@@ -194,17 +198,38 @@ export default function Home() {
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
           contact.
         </h1>
-        <Image
-          src={Contact}
-          alt="Contact illustration"
-          className="w-full sm:w-1/3 object-cover mx-auto"
-        />
-        <p className="mt-6 text-justify text-light-grey text-xl sm:text-2xl">
-          {text.contact.opportunities}
-        </p>
-        <div className="mt-6 text-light-grey text-xl sm:text-2xl flex flex-col sm:flex-row gap-2 sm:gap-4">
-          <p className="flex whitespace-nowrap">📧 chloe.dewasmes@itech.fr</p>
-          <p className="flex whitespace-nowrap">📞 +33 6 18 40 76 93</p>
+
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          <Image
+            src={Contact}
+            alt="Contact illustration"
+            className="w-[25vw] min-w-[300px] object-cover"
+          />
+          <div className="flex flex-col justify-center">
+            <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
+              {text.contact.opportunities}
+            </p>
+            <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
+              <p className="flex whitespace-nowrap">
+                <span className="mr-2">📧</span>
+                <a
+                  href="mailto:chloe.dewasmes@itech.fr"
+                  className="hover:text-salmon-pink hover:underline"
+                >
+                  chloe.dewasmes@itech.fr
+                </a>
+              </p>
+              <p className="flex whitespace-nowrap">
+                <span className="mr-2">📞</span>
+                <a
+                  href="tel:+33618407693"
+                  className="hover:text-salmon-pink hover:underline"
+                >
+                  +33 6 18 40 76 93
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

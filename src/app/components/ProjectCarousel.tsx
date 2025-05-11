@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
@@ -14,12 +17,17 @@ import { useLang } from "../LangContext";
 import translations from "../translations";
 
 export default function ProjectCarousel() {
+  const router = useRouter();
+  const handleProject = (id: string) => {
+    router.push(`/projects/${id}`);
+  };
+
   const { lang } = useLang();
   const text = translations[lang].page;
 
   const projects = [
     {
-      id: 1,
+      id: "LPE",
       src: LPE,
       name: "Les Petits Explorateurs",
       date: text.projects.dateLPE,
@@ -27,7 +35,7 @@ export default function ProjectCarousel() {
       stack: "React Native, Node.js, Express, Redux, MongoDB",
     },
     {
-      id: 2,
+      id: "safehub",
       src: Safehub,
       name: "SafeHub",
       date: text.projects.dateSafehub,
@@ -35,7 +43,7 @@ export default function ProjectCarousel() {
       stack: "Typescript, React, React Native, Next, MongoDB",
     },
     {
-      id: 3,
+      id: "portfolio",
       src: Portfolio,
       name: "Portfolio",
       date: text.projects.datePortfolio,
@@ -43,7 +51,7 @@ export default function ProjectCarousel() {
       stack: "Typescript, React, TailwindCSS",
     },
     {
-      id: 4,
+      id: "readingTracker",
       src: readingTracker,
       name: "Reading Tracker",
       date: text.projects.dateReadingTracker,
@@ -72,6 +80,7 @@ export default function ProjectCarousel() {
       {projects.map((project) => (
         <SwiperSlide
           key={project.id}
+          onClick={() => handleProject(String(project.id))}
           className="flex justify-center items-center"
         >
           <div className="flex flex-col items-center">
@@ -89,7 +98,7 @@ export default function ProjectCarousel() {
                 <p>{project.stack}</p>
               </motion.div>
             </div>
-            <h3 className="mt-4 text-xl font-bold text-light-grey">
+            <h3 className="mt-4 text-xl font-bold text-light-grey text-center">
               {project.name}
             </h3>
             <p className="mb-4 text-sm text-gray-500">{project.date}</p>
