@@ -6,6 +6,14 @@ export const allProjects = [
     src: "/images/portfolio.png",
     description: "Première version de mon portfolio...",
     stack: "React, Next.js, Tailwind",
+    gallery: [
+      "../../../images/contact.png",
+      "/images/portfolio.png",
+      {
+        thumbnail: "/images/demo-thumb.jpg",
+        video: "/videos/demo.mp4",
+      },
+    ],
   },
   {
     id: "LPE",

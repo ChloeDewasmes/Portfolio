@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 const qualities = [
   "Pluridisciplinaire",
   "Adaptable",
@@ -12,30 +14,53 @@ const qualities = [
   "Persévérante",
 ];
 
-export default function QualitiesMarquee() {
+export default function QualityMarquee() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollSpeed = 1;
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) return;
+
+    let animationFrameId: number;
+    const contentWidth = content.scrollWidth / 2;
+
+    const scroll = () => {
+      if (!container || !content || isHovered) {
+        animationFrameId = requestAnimationFrame(scroll);
+        return;
+      }
+
+      container.scrollLeft =
+        (container.scrollLeft + scrollSpeed) % contentWidth;
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
   return (
-    <div className="overflow-hidden group">
-      {[0, 1].map((line) => (
-        <div
-          key={line}
-          className={`flex whitespace-nowrap gap-8 sm:gap-24 group-hover:[animation-play-state:paused] 
-        ${line % 2 === 0 ? "animate-marquee" : "animate-marquee-reverse"}`}
-        >
-          {[...qualities, ...qualities].map((q, i) => (
-            <span
-              key={`${q}-${i}`}
-              className="px-4 py-2 sm:px-12 sm:py-4 bg-salmon-pink text-white rounded-xl text-md font-bold shadow mb-4"
-            >
-              {q}
-            </span>
-          ))}
-          {[...qualities].reverse().map((q, i) => (
-            <span key={`${q}-${i}`} className="">
-              {q}
-            </span>
-          ))}
-        </div>
-      ))}
+    <div
+      className="w-full overflow-hidden border-y border-dark-salmon py-4"
+      ref={containerRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div ref={contentRef} className="flex w-max gap-16">
+        {[...qualities, ...qualities].map((q, i) => (
+          <span
+            key={`${q}-${i}`}
+            className="px-6 py-2 bg-salmon-pink text-white rounded-xl text-sm font-medium shadow"
+          >
+            {q}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

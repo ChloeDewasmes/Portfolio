@@ -10,7 +10,7 @@ import ProjectCarousel from "./components/ProjectCarousel";
 import { Linkedin, Github, HardDriveDownload } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
-import QualitiesMarquee from "./components/qualitiesMarquee";
+import QualitiesMarquee from "./components/QualitiesMarquee";
 import { useLang } from "./LangContext";
 import translations from "./translations";
 
@@ -123,7 +123,7 @@ export default function Home() {
             <p>Disponible de suite.</p>
           </div>
         </div>
-        <div className="flex items-center justify-center text-light-grey mb-12 lg:mb-28">
+        <div className="flex items-center justify-center text-light-grey mb-12 lg:mb-24">
           <div className="leading-relaxed text-white text-xl sm:text-2xl">
             <p className="mb-8 text-center">
               <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent">
