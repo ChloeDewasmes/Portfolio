@@ -66,6 +66,14 @@ export default function ProjectCarousel() {
       effect="coverflow"
       centeredSlides={true}
       slidesPerView={3}
+      breakpoints={{
+        0: {
+          slidesPerView: 1, // screens < 640px
+        },
+        1024: {
+          slidesPerView: 3, // screens ≥ 1024px
+        },
+      }}
       coverflowEffect={{
         rotate: -12,
         stretch: -40,
@@ -84,7 +92,7 @@ export default function ProjectCarousel() {
           className="flex justify-center items-center"
         >
           <div className="flex flex-col items-center">
-            <div className="relative group h-full w-[30vw] rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+            <div className="relative group h-full w-[60vw] lg:w-[30vw] rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
               <Image
                 src={project.src}
                 alt={project.name}
