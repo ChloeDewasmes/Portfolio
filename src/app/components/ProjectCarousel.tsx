@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
@@ -18,12 +19,16 @@ import translations from "../translations";
 
 export default function ProjectCarousel() {
   const router = useRouter();
-  const handleProject = (id: string) => {
-    router.push(`/projects/${id}`);
-  };
-
+  const swiperRef = useRef<any>(null);
   const { lang } = useLang();
   const text = translations[lang].page;
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const projects = [
     {
@@ -61,61 +66,143 @@ export default function ProjectCarousel() {
   ];
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, EffectCoverflow]}
-      effect="coverflow"
-      centeredSlides={true}
-      slidesPerView={3}
-      breakpoints={{
-        0: {
-          slidesPerView: 1, // screens < 640px
-        },
-        1024: {
-          slidesPerView: 3, // screens ≥ 1024px
-        },
-      }}
-      coverflowEffect={{
-        rotate: -12,
-        stretch: -40,
-        depth: 100,
-        modifier: 2.5,
-        slideShadows: false,
-      }}
-      loop={true}
-      navigation
-      pagination={{ clickable: true }}
-    >
-      {projects.map((project) => (
-        <SwiperSlide
-          key={project.id}
-          onClick={() => handleProject(String(project.id))}
-          className="flex justify-center items-center"
+    <div className="relative">
+      <Swiper
+        modules={[Navigation, Pagination, EffectCoverflow]}
+        effect="coverflow"
+        centeredSlides={true}
+        slidesPerView={3}
+        loop={true}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        coverflowEffect={{
+          rotate: -12,
+          stretch: -40,
+          depth: 100,
+          modifier: 2.5,
+          slideShadows: false,
+        }}
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        pagination={{ clickable: true }}
+      >
+        {projects.map((project, index) => {
+          const isActive = index === activeIndex;
+
+          return (
+            <SwiperSlide
+              key={project.id}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (isActive) {
+                  router.push(`/projects/${project.id}`);
+                } else {
+                  swiperRef.current?.slideToLoop(index);
+                }
+              }}
+              className="flex justify-center items-center cursor-pointer"
+            >
+              <div className="flex flex-col items-center">
+                <div
+                  className={`relative w-[60vw] lg:w-[30vw] rounded-xl shadow-lg transition-transform duration-300 ${
+                    isActive ? "hover:scale-105 group" : ""
+                  }`}
+                >
+                  <Image
+                    src={project.src}
+                    alt={project.name}
+                    className="object-cover"
+                  />
+                  {isActive && (
+                    <motion.div
+                      className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-center transition-opacity"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      <p>{project.stack}</p>
+                    </motion.div>
+                  )}
+                </div>
+                <h3 className="mt-6 sm:mt-4 text-xl font-bold text-light-grey text-center">
+                  {project.name}
+                </h3>
+                <p className="text-sm text-gray-500 mb-4">{project.date}</p>
+                <div
+                  className={`mb-14 ${
+                    isActive ? "" : "pointer-events-none opacity-50"
+                  }`}
+                >
+                  <Button text={text.projects.goButton} />
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+
+      {/* Custom arrows */}
+      <div className="custom-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-dark-salmon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8 sm:w-12 sm:h-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
         >
-          <div className="flex flex-col items-center">
-            <div className="relative group h-full w-[60vw] lg:w-[30vw] rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-              <Image
-                src={project.src}
-                alt={project.name}
-                className="object-cover"
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </div>
+      <div className="custom-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer text-dark-salmon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-8 h-8 sm:w-12 sm:h-12"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+      {/* Mobile wave on phones with high height */}
+      {isClient && window.innerWidth <= 640 && window.innerHeight > 600 && (
+        <div className="pointer-events-none absolute pt-[8vh] w-full flex flex-col items-center text-salmon-pink">
+          {[...Array(2)].map((_, i) => (
+            <svg
+              key={i}
+              width="80"
+              height="20"
+              viewBox="0 0 100 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="animate-wiggle"
+            >
+              <path
+                d="M0 10 C20 0, 40 20, 60 10 S100 10, 100 10"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
               />
-              <motion.div
-                className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-center transition-opacity"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              >
-                <p>{project.stack}</p>
-              </motion.div>
-            </div>
-            <h3 className="mt-4 text-xl font-bold text-light-grey text-center">
-              {project.name}
-            </h3>
-            <p className="mb-4 text-sm text-gray-500">{project.date}</p>
-            <div className="mb-14">
-              <Button text={text.projects.goButton} />
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+            </svg>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

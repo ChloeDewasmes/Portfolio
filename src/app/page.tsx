@@ -183,13 +183,13 @@ export default function Home() {
       </div>
 
       <div className="min-h-screen py-20" id="projects">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
+        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-20 sm:mb-8">
           {text.projects.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
           {text.projects.description}
         </div>
-        <div className="mt-8">
+        <div className="mt-12 sm:mt-8">
           <ProjectCarousel />
         </div>
       </div>

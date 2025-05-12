@@ -20,7 +20,7 @@ const translations = {
       },
       projects: {
         title: "projects.",
-        description: "Here are a few projects I maded over the last year:",
+        description: "Here are a few projects I made over the last year:",
         dateLPE: "March 2024",
         lpe: "Mobile Application",
         dateSafehub: "May-September 2024",

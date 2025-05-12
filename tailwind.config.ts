@@ -33,7 +33,7 @@ const config: Config = {
         spinY: "spinY 1s linear infinite",
         spinX: "spinX 1s linear infinite",
         marquee: "marquee 40s linear infinite",
-        "marquee-reverse": "marquee-reverse 40s linear infinite",
+        wiggle: "wiggle 1s ease-in-out infinite",
       },
       keyframes: {
         aurora: {
@@ -60,9 +60,9 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "marquee-reverse": {
-          "0%": { transform: "translateX(-50%)" },
-          "100%": { transform: "translateX(0)" },
+        wiggle: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(5px)" },
         },
       },
       screens: {
