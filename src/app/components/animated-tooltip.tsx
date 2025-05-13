@@ -11,7 +11,7 @@ import {
 
 export const AnimatedTooltip = ({
   items,
-  size = "md", // <-- nouvelle prop
+  size = "md",
 }: {
   items: {
     id: number;
@@ -70,13 +70,12 @@ export const AnimatedTooltip = ({
                 style={{
                   translateX: translateX,
                   rotate: rotate,
-                  whiteSpace: "nowrap",
                 }}
-                className="absolute -top-16 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl"
+                className="absolute flex justify-center items-center -top-16 z-50 rounded-md bg-black px-2 py-2 text-xs shadow-xl min-w-[115px] w-auto"
               >
                 <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-salmon-pink to-transparent" />
                 <div className="absolute -bottom-px z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-dark-salmon to-transparent" />
-                <div className="relative z-30 text-base font-bold text-white">
+                <div className="relative z-30 text-base font-bold text-white text-center break-words">
                   {item.name}
                 </div>
               </motion.div>
@@ -88,10 +87,10 @@ export const AnimatedTooltip = ({
             alt={item.name}
             className="
     relative 
-    w-12 h-12          // taille par défaut (small)
-    sm:min-w-14 sm:h-14    // à partir de 640px
+    w-12 h-12 
+    sm:min-w-14 sm:h-14
     md:min-w-15 md:h-15
-    lg:min-w-16 lg:h-16    // à partir de 768px
+    lg:min-w-16 lg:h-16
     rounded-full 
     bg-white 
     border border-light-grey 

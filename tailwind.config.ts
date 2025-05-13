@@ -79,7 +79,7 @@ const config: Config = {
         linear-gradient(
           135deg,
           rgba(255, 165, 0, 0.08) 0%,     /* warm orange base */
-          rgba(50, 70, 130, 0.20) 18%,    /* slightly more saturated blue */
+          rgba(50, 70, 130, 0.20) 18%,    /* slightly saturated blue */
           rgba(80, 80, 90, 0.06) 30%,     /* gray/blue fade */
           rgba(0, 0, 0, 0.02) 38%,        /* light dark fade */
           transparent 45%,               /* fading out */
