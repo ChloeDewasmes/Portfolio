@@ -1,8 +1,6 @@
-// components/SectionWave.tsx
 import React from "react";
 
 interface SectionWaveProps {
-  bgColor: string;
   waveColor: string;
   children: React.ReactNode;
   id?: string;
@@ -10,18 +8,13 @@ interface SectionWaveProps {
 }
 
 const SectionWave: React.FC<SectionWaveProps> = ({
-  bgColor,
   waveColor,
   children,
   id,
   showBottomWave = true,
 }) => {
   return (
-    <div
-      className="relative w-screen left-1/2 right-1/2 -mx-[50vw]"
-      style={{ backgroundColor: bgColor }}
-      id={id}
-    >
+    <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw]" id={id}>
       {/* Top wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
         <svg

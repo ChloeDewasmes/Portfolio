@@ -34,6 +34,7 @@ const config: Config = {
         spinX: "spinX 1s linear infinite",
         marquee: "marquee 40s linear infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
+        "pulse-fast": "pulse 4s ease-in-out infinite",
       },
       keyframes: {
         aurora: {
@@ -69,6 +70,33 @@ const config: Config = {
         "portrait-tall": {
           raw: "(max-aspect-ratio: 1/1) and (min-height: 751px)",
         },
+      },
+      backgroundColor: {
+        "contact-base": "#141A1F",
+      },
+      backgroundImage: {
+        "skills-gradient": `
+        linear-gradient(
+          135deg,
+          rgba(255, 165, 0, 0.08) 0%,     /* warm orange base */
+          rgba(50, 70, 130, 0.20) 18%,    /* slightly more saturated blue */
+          rgba(80, 80, 90, 0.06) 30%,     /* gray/blue fade */
+          rgba(0, 0, 0, 0.02) 38%,        /* light dark fade */
+          transparent 45%,               /* fading out */
+          transparent 100%               /* fully transparent in top-left */
+        )
+  `,
+        "contact-gradient": `
+          linear-gradient(
+            315deg,
+            rgba(255, 192, 203, 0.12) 0%,     /* pink haze */
+            rgba(144, 238, 144, 0.10) 18%,    /* green haze étalée */
+            rgba(255, 182, 193, 0.08) 30%,    /* light pink */
+            rgba(255, 255, 255, 0.03) 45%,    /* gentle light */
+            transparent 75%,
+            transparent 100%
+          )
+        `,
       },
     },
   },

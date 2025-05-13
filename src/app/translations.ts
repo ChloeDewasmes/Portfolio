@@ -6,13 +6,37 @@ const translations = {
       projects: "Projects",
     },
     page: {
+      connectors: { and: "and" },
       hero: {
         greeting: "Hello, I'm Chloe,",
         job: "Web Developer",
         location: "based in France.",
         resumeButton: "Resume",
       },
-      about: { title: "about." },
+      about: {
+        title: "about.",
+        description:
+          "Currently looking for an apprenticeship starting July 2025 or a temporary/permanent position.",
+        availability: "Available immediately.",
+        developer: {
+          job: "Fullstack Developer",
+          intro: "I combine my skills in",
+          skills: [
+            { word: "problem-solving", emoji: "🧠", animation: "bump" },
+            { word: "technical logic", emoji: "⚙️", animation: "spinZ" },
+            { word: "design", emoji: "🎨", animation: "bump" },
+          ],
+          outro: "with a passion for",
+          end: "and user experience.",
+          motivation: "What drives me: contributing to",
+          adjectives: [
+            { word: "concrete", emoji: "🌿", animation: "bump" },
+            { word: "demanding", emoji: "🛰️", animation: "bump" },
+            { word: "meaningful", emoji: "🌍", animation: "spinY" },
+          ],
+          projects: " projects.",
+        },
+      },
       skills: {
         title: "skills.",
         description:
@@ -54,13 +78,37 @@ const translations = {
       projects: "Projets",
     },
     page: {
+      connectors: { and: "et" },
       hero: {
         greeting: "Bonjour, je suis Chloé,",
         job: "Développeuse Web",
         location: "basée en France.",
         resumeButton: "CV",
       },
-      about: { title: "à propos." },
+      about: {
+        title: "à propos.",
+        description:
+          "Actuellement en recherche d'une alternance pour Juillet 2025 ou d’un poste en CDD/CDI.",
+        availability: "Disponible de suite.",
+        developer: {
+          job: "Développeuse Fullstack",
+          intro: "j’associe mes compétences en",
+          skills: [
+            { word: "résolution de problèmes", emoji: "🧠", animation: "bump" },
+            { word: "logique technique", emoji: "⚙️", animation: "spinZ" },
+            { word: "design", emoji: "🎨", animation: "bump" },
+          ],
+          outro: "à mon goût pour le",
+          end: "et l’expérience utilisateur.",
+          motivation: "Ce qui m’anime : contribuer à des projets",
+          adjectives: [
+            { word: "concrets", emoji: "🌿", animation: "bump" },
+            { word: "exigeants", emoji: "🛰️", animation: "bump" },
+            { word: "porteurs de sens", emoji: "🌍", animation: "spinY" },
+          ],
+          projects: ".",
+        },
+      },
       skills: {
         title: "compétences.",
         description:

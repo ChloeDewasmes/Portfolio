@@ -3,8 +3,9 @@
 import Header from "./header";
 import Image from "next/image";
 import Profile from "../../public/images/profile.png";
-import Contact from "../../public/images/contact.png";
 import Programming from "../../public/images/programming.png";
+import Contact from "../../public/images/contact.png";
+import BgContact from "../../public/images/bgContact.png";
 import Button from "./components/Button";
 import ProjectCarousel from "./components/ProjectCarousel";
 import { Linkedin, Github, HardDriveDownload } from "lucide-react";
@@ -26,7 +27,7 @@ export default function Home() {
   const text = translations[lang].page;
 
   return (
-    <div className="bg-background-blue font-poppins px-6 sm:px-16 py-4 overflow-hidden">
+    <div className="bg-background-blue font-poppins px-6 sm:px-16 pt-2 sm:pt-6 overflow-hidden">
       <header className="h-[30px] flex items-center z-50 relative">
         <Header />
       </header>
@@ -47,7 +48,7 @@ export default function Home() {
             {/* Contenu principal */}
             <div className="flex justify-center py-6 [@media(min-aspect-ratio:1/1)]:w-1/2">
               <Image
-                className="object-contain min-h-[250px] max-w-[80%] max-h-[80vh] [@media(max-aspect-ratio:1/1)]:max-h-[50vh]"
+                className="object-contain min-h-[250px] max-w-[60%] max-h-[80vh] [@media(max-aspect-ratio:1/1)]:max-h-[50vh]"
                 src={Profile}
                 alt="Profile picture"
                 priority
@@ -119,45 +120,87 @@ export default function Home() {
         </h1>
         <div className="flex items-center justify-center my-12 min-w-[55vw]">
           <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white rounded-xl h-full p-4 lg:p-8">
-            <p>
-              Actuellement en recherche d'une alternance pour Juillet 2025 ou
-              d’un poste en CDD/CDI.
-            </p>
-            <p>Disponible de suite.</p>
+            <p>{text.about.description}</p>
+            <p>{text.about.availability}</p>
           </div>
         </div>
         <div className="flex items-center justify-center text-light-grey mb-12 lg:mb-24">
           <div className="leading-relaxed text-white text-xl sm:text-2xl">
             <p className="mb-8 text-center">
               <strong className="bg-gradient-to-r from-light-salmon via-salmon-pink to-dark-salmon bg-clip-text text-transparent">
-                Développeuse Fullstack
+                {text.about.developer.job}
+                {", "}
               </strong>
-              , j’associe mes compétences en{" "}
+              {text.about.developer.intro}{" "}
               <AnimatedEmoji
-                word="résolution de problèmes"
-                emoji="🧠"
-                animation="bump"
-              />
-              , en{" "}
-              <AnimatedEmoji
-                word="logique technique"
-                emoji="⚙️"
-                animation="spinZ"
+                word={text.about.developer.skills[0].word}
+                emoji={text.about.developer.skills[0].emoji}
+                animation={
+                  text.about.developer.skills[0].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
               />{" "}
-              à mon goût pour le{" "}
-              <AnimatedEmoji word="design" emoji="🎨" animation="bump" /> et
-              l’expérience utilisateur.
+              {text.connectors.and}{" "}
+              <AnimatedEmoji
+                word={text.about.developer.skills[1].word}
+                emoji={text.about.developer.skills[1].emoji}
+                animation={
+                  text.about.developer.skills[1].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
+              />{" "}
+              {text.about.developer.outro}{" "}
+              <AnimatedEmoji
+                word={text.about.developer.skills[2].word}
+                emoji={text.about.developer.skills[2].emoji}
+                animation={
+                  text.about.developer.skills[2].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
+              />{" "}
+              {text.about.developer.end}
             </p>
             <p className="text-center">
-              Ce qui m’anime : contribuer à des projets{" "}
-              <AnimatedEmoji word="concrets" emoji="🌿" animation="bump" />,{" "}
-              <AnimatedEmoji word="exigeants" emoji="🛰️" animation="bump" /> et{" "}
+              {text.about.developer.motivation}{" "}
               <AnimatedEmoji
-                word="porteurs de sens"
-                emoji="🌍"
-                animation="spinY"
+                word={text.about.developer.adjectives[0].word}
+                emoji={text.about.developer.adjectives[0].emoji}
+                animation={
+                  text.about.developer.adjectives[0].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
               />
-              .
+              {", "}
+              <AnimatedEmoji
+                word={text.about.developer.adjectives[1].word}
+                emoji={text.about.developer.adjectives[1].emoji}
+                animation={
+                  text.about.developer.adjectives[1].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
+              />{" "}
+              {text.connectors.and}{" "}
+              <AnimatedEmoji
+                word={text.about.developer.adjectives[2].word}
+                emoji={text.about.developer.adjectives[2].emoji}
+                animation={
+                  text.about.developer.adjectives[2].animation as
+                    | "bump"
+                    | "spinZ"
+                    | "spinY"
+                }
+              />
+              {text.about.developer.projects}
             </p>
           </div>
         </div>
@@ -166,27 +209,37 @@ export default function Home() {
         </div>
       </FadeInSection>
 
-      <SectionWave bgColor="#20252B" waveColor="#1B1F24" id="skills">
-        <FadeInSection id="skills">
-          <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[5vh]">
-            {text.skills.title}
-          </h1>
-          <div className="flex items-center pb-[8vh]">
-            <div>
-              <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 md:w-[50vw]">
-                {text.skills.description}
-                <AnimatedEmoji word="." emoji="🚀" animation="bump" />
+      <div
+        className="relative w-screen left-1/2 right-1/2 -mx-[50vw] overflow-hidden 
+             bg-[#20252B] 
+             bg-[linear-gradient(135deg,_rgba(255,_165,_0,_0.12)_0%,_rgba(50,_70,_130,_0.18)_22%,_rgba(80,_80,_90,_0.06)_34%,_rgba(0,_0,_0,_0.02)_42%,_transparent_50%,_transparent_100%)]"
+      >
+        {/* animated background halos */}
+        <div className="absolute right-[-10%] bottom-[-20%] w-[500px] h-[500px] bg-blue-800/25 rounded-full blur-[120px] animate-pulse-fast z-0 pointer-events-none" />
+        <div className="absolute right-[-5%] bottom-[-10%] w-[340px] h-[340px] bg-orange-400/25 rounded-full blur-[100px] animate-pulse-fast z-0 pointer-events-none" />
+
+        <SectionWave waveColor="#1B1F24" id="skills">
+          <FadeInSection id="skills">
+            <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[5vh]">
+              {text.skills.title}
+            </h1>
+            <div className="flex items-center pb-[8vh]">
+              <div>
+                <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 md:w-[50vw]">
+                  {text.skills.description}
+                  <AnimatedEmoji word="." emoji="🚀" animation="bump" />
+                </div>
+                <AnimatedStack />
               </div>
-              <AnimatedStack />
+              <Image
+                src={Programming}
+                alt="Programming illustration"
+                className="hidden md:flex mx-auto w-[40vw] max-w-[500px]"
+              />
             </div>
-            <Image
-              src={Programming}
-              alt="Programming illustration"
-              className="hidden md:flex mx-auto w-[40vw] max-w-[500px]"
-            />
-          </div>
-        </FadeInSection>
-      </SectionWave>
+          </FadeInSection>
+        </SectionWave>
+      </div>
 
       <FadeInSection id="projects">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-20 sm:mb-8">
@@ -200,47 +253,49 @@ export default function Home() {
         </div>
       </FadeInSection>
 
-      <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-[#181B1F]">
-        <SectionWave
-          bgColor="#181B1F"
-          waveColor="#1B1F24"
-          id="contact"
-          showBottomWave={false}
-        >
-          <FadeInSection id="contact">
-            <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
-              contact.
-            </h1>
+      <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-contact-base bg-contact-gradient overflow-hidden">
+        {/* halo animé */}
+        <div className="absolute right-[-20%] bottom-[-30%] w-[700px] h-[700px] bg-pink-400/20 rounded-full blur-[160px] animate-pulse-fast z-10 pointer-events-none" />
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-green-300/10 rounded-full blur-[140px] animate-pulse-fast z-0 pointer-events-none" />
 
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <Image
-                src={Contact}
-                alt="Contact illustration"
-                className="w-[25vw] min-w-[300px] object-cover"
-              />
-              <div className="flex flex-col justify-center">
-                <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
-                  {text.contact.opportunities}
-                </p>
-                <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
-                  <p className="flex whitespace-nowrap">
-                    <span className="mr-2">📧</span>
-                    <a
-                      href="mailto:chloe.dewasmes@itech.fr"
-                      className="hover:text-salmon-pink hover:underline"
-                    >
-                      chloe.dewasmes@itech.fr
-                    </a>
+        <SectionWave waveColor="#1B1F24" id="contact" showBottomWave={false}>
+          <FadeInSection id="contact">
+            {/* Main content above background */}
+            <div className="relative z-10">
+              <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
+                contact.
+              </h1>
+
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <Image
+                  src={Contact}
+                  alt="Contact illustration"
+                  className="w-[25vw] min-w-[300px] object-cover"
+                />
+                <div className="flex flex-col justify-center">
+                  <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
+                    {text.contact.opportunities}
                   </p>
-                  <p className="flex whitespace-nowrap">
-                    <span className="mr-2">📞</span>
-                    <a
-                      href="tel:+33618407693"
-                      className="hover:text-salmon-pink hover:underline"
-                    >
-                      +33 6 18 40 76 93
-                    </a>
-                  </p>
+                  <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
+                    <p className="flex whitespace-nowrap">
+                      <span className="mr-2">📧</span>
+                      <a
+                        href="mailto:chloe.dewasmes@itech.fr"
+                        className="hover:text-salmon-pink hover:underline"
+                      >
+                        chloe.dewasmes@itech.fr
+                      </a>
+                    </p>
+                    <p className="flex whitespace-nowrap">
+                      <span className="mr-2">📞</span>
+                      <a
+                        href="tel:+33618407693"
+                        className="hover:text-salmon-pink hover:underline"
+                      >
+                        +33 6 18 40 76 93
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -269,9 +324,8 @@ export default function Home() {
           ))}
         </div>*/}
 
-        <div className="bg-[#181B1F] px-6 sm:px-16">
+        <div className="flex flex-col mx-6 sm:px-16 pb-4 text-dark-salmon">
           <a
-            className="flex items-end bottom-2 text-dark-salmon"
             href="https://lucide.dev"
             target="_blank"
             rel="noopener noreferrer"
@@ -279,7 +333,6 @@ export default function Home() {
             {text.credits.lucide}
           </a>
           <a
-            className="flex items-end bottom-0 text-dark-salmon"
             href="https://storyset.com/computer"
             target="_blank"
             rel="noopener noreferrer"
