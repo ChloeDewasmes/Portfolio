@@ -16,7 +16,7 @@ const translations = {
       skills: {
         title: "skills.",
         description:
-          "Versatile and passionate about learning new things, web and mobile development allows me to combine creativity and technical skills while constantly taking on new challenges. 🚀",
+          "Versatile and passionate about learning new things, web and mobile development allows me to combine creativity and technical skills while constantly taking on new challenges",
       },
       projects: {
         title: "projects.",
@@ -64,7 +64,7 @@ const translations = {
       skills: {
         title: "compétences.",
         description:
-          "Polyvalente et étant passionnée par l’apprentissage de nouvelles choses, le développement web et mobile me permet de combiner créativité et technique, en relevant sans cesse de nouveaux défis. 🚀",
+          "Polyvalente et étant passionnée par l’apprentissage de nouvelles choses, le développement web et mobile me permet de combiner créativité et technique, en relevant sans cesse de nouveaux défis",
       },
       projects: {
         title: "projets.",

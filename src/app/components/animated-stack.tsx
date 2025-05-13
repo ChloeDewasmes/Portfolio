@@ -21,36 +21,33 @@ export function AnimatedStack() {
     },
     {
       id: 4,
+      name: "Type Script",
+      image: "/images/logo/ts.png",
+    },
+    {
+      id: 5,
       name: "React & React Native",
       image: "/images/logo/react.png",
     },
     {
-      id: 5,
-      name: "Type Script",
-      image: "/images/logo/ts.png",
-    },
-
-    {
       id: 6,
-      name: "Tailwind CSS",
-      image: "/images/logo/tailwind.png",
+      name: "Node JS",
+      image: "/images/logo/node-js.png",
     },
-
     {
       id: 7,
       name: "Express JS",
       image: "/images/logo/express.png",
     },
-
     {
       id: 8,
-      name: "Node JS",
-      image: "/images/logo/node-js.png",
+      name: "Next JS",
+      image: "/images/logo/next.png",
     },
     {
       id: 9,
-      name: "Next JS",
-      image: "/images/logo/next.png",
+      name: "MongoDB",
+      image: "/images/logo/mongoDB.png",
     },
     {
       id: 10,
@@ -59,14 +56,17 @@ export function AnimatedStack() {
     },
     {
       id: 11,
-      name: "MongoDB",
-      image: "/images/logo/mongoDB.png",
+      name: "Tailwind CSS",
+      image: "/images/logo/tailwind.png",
     },
   ];
 
+  const isSmallScreen =
+    typeof window !== "undefined" && window.innerWidth < 540;
+
   return (
-    <div className="hidden md:flex items-center justify-center pt-10 px-6">
-      <AnimatedTooltip items={AllSkills} />
+    <div className="flex items-center justify-center pt-10 px-2 sm:px-6">
+      <AnimatedTooltip items={AllSkills} size={isSmallScreen ? "sm" : "md"} />
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { Linkedin, Github, HardDriveDownload } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
 import QualitiesMarquee from "./components/QualitiesMarquee";
+import SectionWave from "./components/SectionWave";
 import { useLang } from "./LangContext";
 import translations from "./translations";
 
@@ -110,7 +111,7 @@ export default function Home() {
       </AuroraBackground>
 
       {/* Sections */}
-      <div className="min-h-screen py-20" id="about">
+      <div className="min-h-[80vh] py-20" id="about">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black">
           {text.about.title}
         </h1>
@@ -163,26 +164,27 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="min-h-screen py-20" id="skills">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
+      <SectionWave bgColor="#20252B" waveColor="#1B1F24" id="skills">
+        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[8vh]">
           {text.skills.title}
         </h1>
-        <div className="flex items-center">
+        <div className="flex items-center pb-[8vh]">
           <div>
-            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 w-[40vw]">
+            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 sm:w-[50vw]">
               {text.skills.description}
+              <AnimatedEmoji word="." emoji="🚀" animation="bump" />
             </div>
             <AnimatedStack />
           </div>
           <Image
             src={Programming}
             alt="Programming illustration"
-            className="hidden sm:flex w-[40vw] max-w-[500px] mx-auto"
+            className="hidden sm:flex w-[40vw] max-w-[500px]"
           />
         </div>
-      </div>
+      </SectionWave>
 
-      <div className="min-h-screen py-20" id="projects">
+      <div className="min-h-[80vh] py-20" id="projects">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-20 sm:mb-8">
           {text.projects.title}
         </h1>
@@ -194,62 +196,69 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="min-h-screen py-20" id="contact">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6">
-          contact.
-        </h1>
+      <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-[#181B1F] pb-4">
+        <SectionWave
+          bgColor="#181B1F"
+          waveColor="#1B1F24"
+          id="contact"
+          showBottomWave={false}
+        >
+          <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
+            contact.
+          </h1>
 
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <Image
-            src={Contact}
-            alt="Contact illustration"
-            className="w-[25vw] min-w-[300px] object-cover"
-          />
-          <div className="flex flex-col justify-center">
-            <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
-              {text.contact.opportunities}
-            </p>
-            <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
-              <p className="flex whitespace-nowrap">
-                <span className="mr-2">📧</span>
-                <a
-                  href="mailto:chloe.dewasmes@itech.fr"
-                  className="hover:text-salmon-pink hover:underline"
-                >
-                  chloe.dewasmes@itech.fr
-                </a>
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-[8vh]">
+            <Image
+              src={Contact}
+              alt="Contact illustration"
+              className="w-[25vw] min-w-[300px] object-cover"
+            />
+            <div className="flex flex-col justify-center">
+              <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
+                {text.contact.opportunities}
               </p>
-              <p className="flex whitespace-nowrap">
-                <span className="mr-2">📞</span>
-                <a
-                  href="tel:+33618407693"
-                  className="hover:text-salmon-pink hover:underline"
-                >
-                  +33 6 18 40 76 93
-                </a>
-              </p>
+              <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
+                <p className="flex whitespace-nowrap">
+                  <span className="mr-2">📧</span>
+                  <a
+                    href="mailto:chloe.dewasmes@itech.fr"
+                    className="hover:text-salmon-pink hover:underline"
+                  >
+                    chloe.dewasmes@itech.fr
+                  </a>
+                </p>
+                <p className="flex whitespace-nowrap">
+                  <span className="mr-2">📞</span>
+                  <a
+                    href="tel:+33618407693"
+                    className="hover:text-salmon-pink hover:underline"
+                  >
+                    +33 6 18 40 76 93
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SectionWave>
 
-      <div>
-        <a
-          className="flex items-end bottom-0 text-dark-salmon"
-          href="https://lucide.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {text.credits.lucide}
-        </a>
-        <a
-          className="flex items-end bottom-0 text-dark-salmon"
-          href="https://storyset.com/computer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {text.credits.storyset}
-        </a>
+        <div className="bg-[#181B1F] px-6 sm:px-16">
+          <a
+            className="flex items-end bottom-2 text-dark-salmon"
+            href="https://lucide.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {text.credits.lucide}
+          </a>
+          <a
+            className="flex items-end bottom-0 text-dark-salmon"
+            href="https://storyset.com/computer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {text.credits.storyset}
+          </a>
+        </div>
       </div>
 
       <ScrollToTopButton />

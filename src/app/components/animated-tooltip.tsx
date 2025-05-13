@@ -11,12 +11,14 @@ import {
 
 export const AnimatedTooltip = ({
   items,
+  size = "md", // <-- nouvelle prop
 }: {
   items: {
     id: number;
     name: string;
     image: string;
   }[];
+  size?: "sm" | "md" | "lg";
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
@@ -36,6 +38,11 @@ export const AnimatedTooltip = ({
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
 
+  const sizeMap = {
+    sm: "w-10 h-10", // 40px
+    md: "w-16 h-16", // 64px (ce que tu avais)
+    lg: "w-20 h-20", // 80px
+  };
   return (
     <>
       {items.map((item, idx) => (
@@ -81,7 +88,7 @@ export const AnimatedTooltip = ({
             width={100}
             src={item.image}
             alt={item.name}
-            className="relative !m-0 w-16 h-16 rounded-full bg-white border border-light-grey object-contain !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
+            className={`relative !m-0 aspect-square rounded-full bg-white border border-light-grey object-contain !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 ${sizeMap[size]}`}
           />
         </div>
       ))}
