@@ -180,6 +180,18 @@ export default function ProjectCarousel() {
         </svg>
       </div>
 
+      {/* Pagination dots */}
+      <style jsx global>{`
+        .swiper-pagination-bullet {
+          background-color: #737373 !important; /* dark grey */
+          opacity: 1 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+          background-color: #ff6f61 !important; /* salmon pink */
+        }
+      `}</style>
+
       {/* Mobile wave on phones with high height */}
       {isClient && window.innerWidth <= 640 && window.innerHeight > 600 && (
         <div className="pointer-events-none absolute pt-[8vh] w-full flex flex-col items-center text-salmon-pink">
