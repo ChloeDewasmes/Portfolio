@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
@@ -24,11 +24,6 @@ export default function ProjectCarousel() {
   const text = translations[lang].page;
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const projects = [
     {
@@ -191,30 +186,6 @@ export default function ProjectCarousel() {
           background-color: #ff6f61 !important; /* salmon pink */
         }
       `}</style>
-
-      {/* Mobile wave on phones with high height */}
-      {isClient && window.innerWidth <= 640 && window.innerHeight > 600 && (
-        <div className="z-10 pointer-events-none absolute mt-8 w-full flex flex-col items-center text-salmon-pink">
-          {[...Array(2)].map((_, i) => (
-            <svg
-              key={i}
-              width="80"
-              height="20"
-              viewBox="0 0 100 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="animate-wiggle"
-            >
-              <path
-                d="M0 10 C20 0, 40 20, 60 10 S100 10, 100 10"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

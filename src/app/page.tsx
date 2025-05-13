@@ -200,7 +200,7 @@ export default function Home() {
         </div>
       </FadeInSection>
 
-      <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-[#181B1F] pb-4">
+      <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-[#181B1F]">
         <SectionWave
           bgColor="#181B1F"
           waveColor="#1B1F24"
@@ -212,7 +212,7 @@ export default function Home() {
               contact.
             </h1>
 
-            <div className="flex flex-col md:flex-row items-center gap-8 mb-[8vh]">
+            <div className="flex flex-col md:flex-row items-center gap-8">
               <Image
                 src={Contact}
                 alt="Contact illustration"
@@ -246,6 +246,28 @@ export default function Home() {
             </div>
           </FadeInSection>
         </SectionWave>
+
+        {/* Wave at the bottom 
+        <div className="pointer-events-none w-full flex flex-col items-center text-salmon-pink mb-[4vh]">
+          {[...Array(2)].map((_, i) => (
+            <svg
+              key={i}
+              width="80"
+              height="20"
+              viewBox="0 0 100 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="animate-wiggle"
+            >
+              <path
+                d="M0 10 C20 0, 40 20, 60 10 S100 10, 100 10"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+              />
+            </svg>
+          ))}
+        </div>*/}
 
         <div className="bg-[#181B1F] px-6 sm:px-16">
           <a
