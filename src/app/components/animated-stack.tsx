@@ -65,7 +65,7 @@ export function AnimatedStack() {
     typeof window !== "undefined" && window.innerWidth < 540;
 
   return (
-    <div className="flex items-center justify-center pt-10 px-2 sm:px-6">
+    <div className="flex items-center justify-center pt-10 pr-4 md:w-[50vw]">
       <AnimatedTooltip items={AllSkills} size={isSmallScreen ? "sm" : "md"} />
     </div>
   );

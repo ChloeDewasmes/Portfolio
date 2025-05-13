@@ -39,9 +39,9 @@ export const AnimatedTooltip = ({
   };
 
   const sizeMap = {
-    sm: "w-10 h-10", // 40px
-    md: "w-16 h-16", // 64px (ce que tu avais)
-    lg: "w-20 h-20", // 80px
+    sm: "w-10 h-10",
+    md: "w-16 h-16",
+    lg: "w-20 h-20",
   };
   return (
     <>
@@ -75,7 +75,7 @@ export const AnimatedTooltip = ({
                 className="absolute -top-16 z-50 flex -translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl"
               >
                 <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-salmon-pink to-transparent" />
-                <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-dark-salmon to-transparent" />
+                <div className="absolute -bottom-px z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-dark-salmon to-transparent" />
                 <div className="relative z-30 text-base font-bold text-white">
                   {item.name}
                 </div>
@@ -84,11 +84,22 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
           <img
             onMouseMove={handleMouseMove}
-            height={100}
-            width={100}
             src={item.image}
             alt={item.name}
-            className={`relative !m-0 aspect-square rounded-full bg-white border border-light-grey object-contain !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 ${sizeMap[size]}`}
+            className="
+    relative 
+    w-12 h-12          // taille par défaut (small)
+    sm:min-w-14 sm:h-14    // à partir de 640px
+    md:min-w-15 md:h-15
+    lg:min-w-16 lg:h-16    // à partir de 768px
+    rounded-full 
+    bg-white 
+    border border-light-grey 
+    object-contain
+    transition duration-500 
+    group-hover:z-30 
+    group-hover:scale-105
+  "
           />
         </div>
       ))}

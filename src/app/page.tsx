@@ -170,7 +170,7 @@ export default function Home() {
         </h1>
         <div className="flex items-center pb-[8vh]">
           <div>
-            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 sm:w-[50vw]">
+            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 md:w-[50vw]">
               {text.skills.description}
               <AnimatedEmoji word="." emoji="🚀" animation="bump" />
             </div>
@@ -179,7 +179,7 @@ export default function Home() {
           <Image
             src={Programming}
             alt="Programming illustration"
-            className="hidden sm:flex w-[40vw] max-w-[500px]"
+            className="hidden md:flex mx-auto w-[40vw] max-w-[500px]"
           />
         </div>
       </SectionWave>
