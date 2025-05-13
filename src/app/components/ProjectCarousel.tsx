@@ -194,7 +194,7 @@ export default function ProjectCarousel() {
 
       {/* Mobile wave on phones with high height */}
       {isClient && window.innerWidth <= 640 && window.innerHeight > 600 && (
-        <div className="pointer-events-none absolute pt-[8vh] w-full flex flex-col items-center text-salmon-pink">
+        <div className="z-10 pointer-events-none absolute mt-8 w-full flex flex-col items-center text-salmon-pink">
           {[...Array(2)].map((_, i) => (
             <svg
               key={i}

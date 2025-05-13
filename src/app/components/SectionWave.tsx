@@ -38,9 +38,7 @@ const SectionWave: React.FC<SectionWaveProps> = ({
       </div>
 
       {/* Contenu */}
-      <div className="relative z-10 min-h-[80vh] py-20 px-6 sm:px-16">
-        {children}
-      </div>
+      <div className="relative z-10 py-20 px-6 sm:px-16">{children}</div>
 
       {/* Bottom wave */}
       {showBottomWave && (

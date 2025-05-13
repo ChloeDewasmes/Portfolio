@@ -11,6 +11,7 @@ import { Linkedin, Github, HardDriveDownload } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
 import QualitiesMarquee from "./components/QualitiesMarquee";
+import FadeInSection from "./components/FadeInSection";
 import SectionWave from "./components/SectionWave";
 import { useLang } from "./LangContext";
 import translations from "./translations";
@@ -34,6 +35,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{
             delay: 0.15,
             duration: 0.8,
@@ -111,7 +113,7 @@ export default function Home() {
       </AuroraBackground>
 
       {/* Sections */}
-      <div className="min-h-[80vh] py-20" id="about">
+      <FadeInSection id="about">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black">
           {text.about.title}
         </h1>
@@ -162,29 +164,31 @@ export default function Home() {
         <div className="my-12 mx-auto">
           <QualitiesMarquee />
         </div>
-      </div>
+      </FadeInSection>
 
       <SectionWave bgColor="#20252B" waveColor="#1B1F24" id="skills">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[8vh]">
-          {text.skills.title}
-        </h1>
-        <div className="flex items-center pb-[8vh]">
-          <div>
-            <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 md:w-[50vw]">
-              {text.skills.description}
-              <AnimatedEmoji word="." emoji="🚀" animation="bump" />
+        <FadeInSection id="skills">
+          <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[5vh]">
+            {text.skills.title}
+          </h1>
+          <div className="flex items-center pb-[8vh]">
+            <div>
+              <div className="text-justify mb-9 text-light-grey text-xl sm:text-2xl space-y-6 md:w-[50vw]">
+                {text.skills.description}
+                <AnimatedEmoji word="." emoji="🚀" animation="bump" />
+              </div>
+              <AnimatedStack />
             </div>
-            <AnimatedStack />
+            <Image
+              src={Programming}
+              alt="Programming illustration"
+              className="hidden md:flex mx-auto w-[40vw] max-w-[500px]"
+            />
           </div>
-          <Image
-            src={Programming}
-            alt="Programming illustration"
-            className="hidden md:flex mx-auto w-[40vw] max-w-[500px]"
-          />
-        </div>
+        </FadeInSection>
       </SectionWave>
 
-      <div className="min-h-[80vh] py-20" id="projects">
+      <FadeInSection id="projects">
         <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-20 sm:mb-8">
           {text.projects.title}
         </h1>
@@ -194,7 +198,7 @@ export default function Home() {
         <div className="mt-12 sm:mt-8">
           <ProjectCarousel />
         </div>
-      </div>
+      </FadeInSection>
 
       <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-[#181B1F] pb-4">
         <SectionWave
@@ -203,42 +207,44 @@ export default function Home() {
           id="contact"
           showBottomWave={false}
         >
-          <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
-            contact.
-          </h1>
+          <FadeInSection id="contact">
+            <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
+              contact.
+            </h1>
 
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-[8vh]">
-            <Image
-              src={Contact}
-              alt="Contact illustration"
-              className="w-[25vw] min-w-[300px] object-cover"
-            />
-            <div className="flex flex-col justify-center">
-              <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
-                {text.contact.opportunities}
-              </p>
-              <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
-                <p className="flex whitespace-nowrap">
-                  <span className="mr-2">📧</span>
-                  <a
-                    href="mailto:chloe.dewasmes@itech.fr"
-                    className="hover:text-salmon-pink hover:underline"
-                  >
-                    chloe.dewasmes@itech.fr
-                  </a>
+            <div className="flex flex-col md:flex-row items-center gap-8 mb-[8vh]">
+              <Image
+                src={Contact}
+                alt="Contact illustration"
+                className="w-[25vw] min-w-[300px] object-cover"
+              />
+              <div className="flex flex-col justify-center">
+                <p className="mt-6 text-center md:text-justify text-light-grey text-xl sm:text-2xl">
+                  {text.contact.opportunities}
                 </p>
-                <p className="flex whitespace-nowrap">
-                  <span className="mr-2">📞</span>
-                  <a
-                    href="tel:+33618407693"
-                    className="hover:text-salmon-pink hover:underline"
-                  >
-                    +33 6 18 40 76 93
-                  </a>
-                </p>
+                <div className="mt-16 text-light-grey text-xl sm:text-2xl flex flex-col gap-2 sm:gap-4 items-center md:items-start">
+                  <p className="flex whitespace-nowrap">
+                    <span className="mr-2">📧</span>
+                    <a
+                      href="mailto:chloe.dewasmes@itech.fr"
+                      className="hover:text-salmon-pink hover:underline"
+                    >
+                      chloe.dewasmes@itech.fr
+                    </a>
+                  </p>
+                  <p className="flex whitespace-nowrap">
+                    <span className="mr-2">📞</span>
+                    <a
+                      href="tel:+33618407693"
+                      className="hover:text-salmon-pink hover:underline"
+                    >
+                      +33 6 18 40 76 93
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </FadeInSection>
         </SectionWave>
 
         <div className="bg-[#181B1F] px-6 sm:px-16">
