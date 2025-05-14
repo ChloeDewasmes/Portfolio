@@ -1,4 +1,4 @@
-Version française ci-dessous.
+[Version française ci-dessous](https://github.com/ChloeDewasmes/Portfolio/blob/main/README.md#-portfolio--d%C3%A9veloppeuse-web--mobile)
 
 ___
 EN
