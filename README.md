@@ -1,6 +1,6 @@
 # 🌐 Portfolio – Développeuse Web & Mobile
 
-Ce projet est un portfolio personnel développé avec **Next.js** et **TailwindCSS**, visant à présenter mes projets, compétences et expériences. L’objectif est de proposer une interface moderne, animée, responsive et élégante.
+Ce projet est un portfolio personnel développé en TypeScript avec **Next.js** et **TailwindCSS**, visant à présenter mes projets, compétences et expériences. L’objectif est de proposer une interface moderne, animée, responsive et élégante.
 
 ---
 
