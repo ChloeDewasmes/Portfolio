@@ -27,11 +27,11 @@ export default function ProjectCarousel() {
 
   const projects = [
     {
-      id: "LPE",
+      id: "les-petits-explorateurs",
       src: LPE,
       name: "Les Petits Explorateurs",
       date: text.projects.dateLPE,
-      description: text.projects.lpe,
+      description: text.projects.lpeDescription,
       stack: "React Native, Node.js, Express, Redux, MongoDB",
     },
     {
@@ -51,7 +51,7 @@ export default function ProjectCarousel() {
       stack: "Typescript, React, TailwindCSS",
     },
     {
-      id: "readingTracker",
+      id: "reading-tracker",
       src: readingTracker,
       name: "Reading Tracker",
       date: text.projects.dateReadingTracker,

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Profile from "../../public/images/profile.png";
 import Programming from "../../public/images/programming.png";
 import Contact from "../../public/images/contact.png";
-import BgContact from "../../public/images/bgContact.png";
 import Button from "./components/Button";
 import ProjectCarousel from "./components/ProjectCarousel";
 import { Linkedin, Github, HardDriveDownload } from "lucide-react";

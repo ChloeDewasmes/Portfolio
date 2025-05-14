@@ -1,18 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const qualities = [
-  "Pluridisciplinaire",
-  "Adaptable",
-  "Curieuse",
-  "Enthousiaste",
-  "Esprit d'équipe",
-  "Impliquée",
-  "Autonome",
-  "Rigoureuse",
-  "Persévérante",
-];
+import { useLang } from "../LangContext";
+import translations from "../translations";
 
 export default function QualityMarquee() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,6 +12,11 @@ export default function QualityMarquee() {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const scrollSpeed = 1;
+
+  const { lang } = useLang();
+  const text = translations[lang].page;
+
+  const qualities = text.about.qualities;
 
   // Auto-scroll
   useEffect(() => {
