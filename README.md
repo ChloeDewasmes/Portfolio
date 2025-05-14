@@ -1,3 +1,60 @@
+Version française ci-dessous.
+
+___
+EN
+
+# 🌐 Portfolio – Web & Mobile Developer
+
+This project is a personal portfolio developed in TypeScript with **Next.js** and **TailwindCSS**, aimed at showcasing my projects, skills, and experiences. The goal is to provide a modern, animated, responsive, and elegant interface.
+
+---
+
+## 🚀 Getting Started
+
+yarn install
+yarn dev
+Then, access the project at http://localhost:3000 in your browser.
+
+## 🛠️ Stack & Tools
+Next.js 15 – Server-side React Framework
+
+React 18 – UI Library
+
+TypeScript – Static Typing
+
+TailwindCSS – Utility-first CSS Framework
+
+Framer Motion – Smooth and Modern Animations
+
+Lucide – Elegant SVG Icons
+
+Swiper.js – Smooth & Responsive Carousel
+
+Aceternity UI – Stylized and Accessible Components
+
+Storyset – Free Vector Illustrations
+
+## 🗂️ Project Structure
+
+src/
+├── app/
+│   ├── components/         → Reusable components
+│   ├── data/               → Static data (projects, etc.)
+│   ├── lib/                → Utility functions
+│   ├── projects/           → Individual project pages
+│   ├── types/              → TypeScript types
+│   ├── layout.tsx          → Global layout
+│   ├── page.tsx            → Home page
+├── fonts/                  → Custom fonts
+
+## 💡 About
+This project was designed to provide smooth navigation, an interactive experience, and showcase my profile in a professional manner.
+The interface is responsive, adapting seamlessly to all screen sizes (mobile, tablet, desktop).
+
+___
+
+FR
+
 # 🌐 Portfolio – Développeuse Web & Mobile
 
 Ce projet est un portfolio personnel développé en TypeScript avec **Next.js** et **TailwindCSS**, visant à présenter mes projets, compétences et expériences. L’objectif est de proposer une interface moderne, animée, responsive et élégante.
