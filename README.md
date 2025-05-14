@@ -10,7 +10,7 @@ yarn install
 yarn dev
 Accède ensuite à http://localhost:3000 dans ton navigateur.
 
-🛠️ Stack & outils
+## 🛠️ Stack & outils
 Next.js 15 – Framework React côté serveur
 
 React 18 – Librairie UI
@@ -29,9 +29,8 @@ Aceternity UI – Composants stylisés et accessibles
 
 Storyset – Illustrations vectorielles libres
 
----
 
-### 🗂️ Structure du projet
+## 🗂️ Structure du projet
 
 src/
 ├── app/
@@ -46,7 +45,7 @@ src/
 
 ___
 
-#### 💡 À propos
+## 💡 À propos
 Ce projet a été conçu pour offrir une navigation fluide, une expérience interactive, et mettre en valeur mon profil de manière professionnelle.
 L’interface est responsive, s’adaptant parfaitement à tous les formats d’écran (mobile, tablette, desktop).
 
