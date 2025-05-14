@@ -35,17 +35,6 @@ Storyset – Illustrations vectorielles libres
 
 src/
 ├── app/
-│ ├── components/ → Composants réutilisables
-│ ├── data/ → Données statiques (projets, etc.)
-│ ├── lib/ → Fonctions utilitaires
-│ ├── projects/ → Pages de projets individuelles
-│ ├── types/ → Types TypeScript
-│ ├── layout.tsx → Layout global
-│ ├── page.tsx → Page d’accueil
-├── fonts/ → Polices personnalisées
-
-src/
-├── app/
 │   ├── components/         → Composants réutilisables
 │   ├── data/               → Données statiques (projets, etc.)
 │   ├── lib/                → Fonctions utilitaires
