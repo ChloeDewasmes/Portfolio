@@ -1,6 +1,8 @@
 "use client";
 import { notFound } from "next/navigation";
 import { allProjects } from "../../data/projects-data";
+import { useLang } from "../../LangContext";
+import translations from "../../translations";
 import { useState } from "react";
 
 interface ProjectPageProps {
@@ -9,7 +11,14 @@ interface ProjectPageProps {
   };
 }
 
+function get(path: string, obj: any): any {
+  return path.split(".").reduce((acc, part) => acc?.[part], obj);
+}
+
 export default function ProjectPage({ params }: ProjectPageProps) {
+  const { lang } = useLang();
+  const text = translations[lang].page;
+
   const project = allProjects.find((p) => p.id === params.id);
   const [mainImage, setMainImage] = useState(project?.src);
 
@@ -56,8 +65,65 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
-        <p className="my-6 text-white">{project.description}</p>
-        <p className="text-sm text-light-salmon">Stack: {project.stack}</p>
+        <div>
+          {allProjects.map((project) => (
+            <p key={project.id} className="my-6 text-white">
+              {get(project.description, text)}
+            </p>
+          ))}
+        </div>
+        <div className="space-y-2">
+          {/* First Row: Language, Frontend, Backend */}
+          <div className="flex flex-wrap gap-2">
+            {/* Language - Light Blue */}
+            <span className="bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-sm">
+              {project.stack.language}
+            </span>
+
+            {/* Frontend - Light Rose */}
+            {project.stack.front.map((tech) => (
+              <span
+                key={tech}
+                className="bg-rose-200 text-rose-900 px-3 py-1 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+
+            {/* Backend - Light Amber */}
+            {project.stack.back.map((tech) => (
+              <span
+                key={tech}
+                className="bg-amber-200 text-amber-900 px-3 py-1 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Second Row: Database, Versioning */}
+          <div className="flex flex-wrap gap-2">
+            {/* Database - Light Green */}
+            {project.stack.db.map((tech) => (
+              <span
+                key={tech}
+                className="bg-green-200 text-green-900 px-3 py-1 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+
+            {/* Versioning - Light Violet */}
+            {project.stack.versionning.map((tech) => (
+              <span
+                key={tech}
+                className="bg-violet-200 text-violet-900 px-3 py-1 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
