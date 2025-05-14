@@ -1,3 +1,57 @@
+# 🌐 Portfolio – Développeuse Web & Mobile
+
+Ce projet est un portfolio personnel développé avec **Next.js** et **TailwindCSS**, visant à présenter mes projets, compétences et expériences. L’objectif est de proposer une interface moderne, animée, responsive et élégante.
+
+---
+
+## 🚀 Démarrer le projet
+
+yarn install
+yarn dev
+Accède ensuite à http://localhost:3000 dans ton navigateur.
+
+🛠️ Stack & outils
+Next.js 15 – Framework React côté serveur
+
+React 18 – Librairie UI
+
+TypeScript – Typage statique
+
+TailwindCSS – Framework CSS utilitaire
+
+Framer Motion – Animations fluides et modernes
+
+Lucide – Icônes SVG élégantes
+
+Swiper.js – Carrousel fluide & responsive
+
+Aceternity UI – Composants stylisés et accessibles
+
+Storyset – Illustrations vectorielles libres
+
+---
+
+### 🗂️ Structure du projet
+
+src/
+├── app/
+│   ├── components/         → Composants réutilisables
+│   ├── data/               → Données statiques (projets, etc.)
+│   ├── lib/                → Fonctions utilitaires
+│   ├── projects/           → Pages de projets individuelles
+│   ├── types/              → Types TypeScript
+│   ├── layout.tsx          → Layout global
+│   ├── page.tsx            → Page d’accueil
+├── fonts/                  → Polices personnalisées
+
+___
+
+#### 💡 À propos
+Ce projet a été conçu pour offrir une navigation fluide, une expérience interactive, et mettre en valeur mon profil de manière professionnelle.
+L’interface est responsive, s’adaptant parfaitement à tous les formats d’écran (mobile, tablette, desktop).
+
+___
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
