@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
@@ -19,6 +19,8 @@ import translations from "../translations";
 
 export default function ProjectCarousel() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const activeSlide = Number(searchParams.get("activeSlide")) || 0;
   const swiperRef = useRef<any>(null);
   const { lang } = useLang();
   const text = translations[lang].page;
@@ -68,6 +70,7 @@ export default function ProjectCarousel() {
         centeredSlides={true}
         slidesPerView={3}
         loop={true}
+        initialSlide={activeSlide}
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -100,7 +103,7 @@ export default function ProjectCarousel() {
               onClick={(e) => {
                 e.stopPropagation();
                 if (isActive) {
-                  router.push(`/projects/${project.id}`);
+                  router.push(`/projects/${project.id}?fromIndex=${index}`);
                 } else {
                   swiperRef.current?.slideToLoop(index);
                 }

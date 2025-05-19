@@ -12,14 +12,7 @@ export const allProjects = [
       db: [],
       versionning: ["Git", "GitHub"],
     },
-    gallery: [
-      "../../../images/contact.png",
-      "/images/portfolio.png",
-      {
-        thumbnail: "/images/demo-thumb.jpg",
-        video: "/videos/demo.mp4",
-      },
-    ],
+    gallery: [],
   },
   {
     id: "les-petits-explorateurs",
@@ -34,6 +27,16 @@ export const allProjects = [
       db: ["MongoDB"],
       versionning: ["Git", "GitHub"],
     },
+    gallery: [
+      "../../../images/LPE/screen1.jpg",
+      "../../../images/LPE/screen2.jpg",
+      "../../../images/LPE/screen3.jpg",
+      "../../../images/LPE/screen4.jpg",
+      {
+        thumbnail: "/images/LPEdemo.png",
+        video: "/demos/LPE.mp4",
+      },
+    ],
   },
   {
     id: "safehub",
@@ -62,5 +65,16 @@ export const allProjects = [
       db: ["MongoDB"],
       versionning: ["Git", "GitHub"],
     },
+    gallery: [
+      "../../../images/readingTracker/screen1.png",
+      "../../../images/readingTracker/screen2.png",
+      "../../../images/readingTracker/screen3.png",
+      "../../../images/readingTracker/screen4.png",
+      "../../../images/readingTracker/screen5.png",
+      {
+        thumbnail: "/images/readingTrackerDemo.png",
+        video: "/demos/readingTracker.mp4",
+      },
+    ],
   },
 ];

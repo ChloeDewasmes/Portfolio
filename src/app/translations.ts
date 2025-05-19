@@ -58,8 +58,7 @@ const translations = {
         description: "Here are a few projects I made over the last year:",
         dateLPE: "March 2024",
         lpe: "Mobile Application",
-        lpeDescription:
-          'Les Petits Explorateurs is a mobile application developed in React Native as part of a final project for the "Web and Mobile Application Designer and Developer" training program with the organization La Capsule. The goal is to allow parents to search for nearby activities, but also to list new ones. It’s a collaborative tool created by parents for parents, as volunteers in children’s organizations are often highly involved parents themselves.',
+        lpeDescription: `"Les Petits Explorateurs" is a mobile application developed in React Native as part of a final project for the "Web and Mobile Application Designer and Developer" training program with the organization La Capsule. The goal is to allow parents to search for nearby activities, but also to list new ones. It’s a collaborative tool created by parents for parents, as volunteers in children’s organizations are often highly involved parents themselves.`,
         dateSafehub: "May-September 2024",
         safehub: "Website, Mobile App, Web App",
         safehubDescription:
@@ -149,8 +148,7 @@ const translations = {
         description: "Voici quelques projets réalisés :",
         dateLPE: "Mars 2024",
         lpe: "Application Mobile",
-        lpeDescription:
-          "Les petits explorateurs est une application mobile développée en React Native dans le cadre d’un projet de fin de formation “Concepteur et développeur d’applications web et mobile” avec l’organisme de formation La Capsule. L’objectif est de permettre aux parents de rechercher les activités proches de chez soi mais aussi d'en répertorier. C'est donc un outil collaboratif par les parents pour les parents (car les bénévoles des associations pour enfants sont le plus souvent des parents très impliqués).",
+        lpeDescription: `"Les petits explorateurs" est une application mobile développée en React Native dans le cadre d’un projet de fin de formation “Concepteur et développeur d’applications web et mobile” avec l’organisme de formation La Capsule. L’objectif est de permettre aux parents de rechercher les activités proches de chez soi mais aussi d'en répertorier. C'est donc un outil collaboratif par les parents pour les parents (car les bénévoles des associations pour enfants sont le plus souvent des parents très impliqués).`,
         dateSafehub: "Mai-Septembre 2024",
         safehub: "Site web, Application mobile et Web App",
         safehubDescription:

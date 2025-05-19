@@ -66,7 +66,7 @@ export default function Home() {
 
               <div className="flex flex-row portrait-tall:flex-col items-center gap-6 [@media(max-aspect-ratio:1/1)]:justify-center">
                 <a
-                  href="https://drive.google.com/file/d/1dPVVsRLzPHbnTCyWSt5hFijbl-e6YjaV/view?usp=sharing"
+                  href="../../public/resumes/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
