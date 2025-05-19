@@ -17,6 +17,15 @@ function get(path: string, obj: any): any {
   return path.split(".").reduce((acc, part) => acc?.[part], obj);
 }
 
+type GalleryItem =
+  | string
+  | {
+      main?: string;
+      thumbnail: string;
+      link?: string;
+      video?: string;
+    };
+
 export default function ProjectPage({ params }: ProjectPageProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -25,9 +34,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const text = translations[lang].page;
 
   const project = allProjects.find((p) => p.id === params.id);
-  const [mainImage, setMainImage] = useState(project?.src);
-
   if (!project) return notFound();
+
+  const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
+
+  const [mainImage, setMainImage] = useState<GalleryItem>(project.src);
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  // Determine if mainImage is a video or string
+  const isMainVideo = typeof mainImage === "object" && "video" in mainImage;
 
   return (
     <div className="min-h-screen bg-background-blue">
@@ -46,40 +62,96 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </p>
 
         <div className="flex justify-center rounded-xl shadow-md overflow-hidden mb-4">
-          <img
-            src={mainImage}
-            alt="Main"
-            className="max-h-[62vh] w-auto rounded-xl"
-          />
+          {isMainVideo ? (
+            <video
+              src={(mainImage as { video: string }).video}
+              className="h-[62vh] w-auto rounded-xl"
+              controls
+              autoPlay
+              muted
+              loop
+            />
+          ) : typeof mainImage !== "string" && "link" in mainImage ? (
+            <a
+              href={mainImage.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <img
+                src={mainImage.main || mainImage.thumbnail}
+                alt="Main"
+                className="h-[62vh] w-auto rounded-xl cursor-pointer"
+              />
+            </a>
+          ) : (
+            <img
+              src={
+                typeof mainImage === "string"
+                  ? mainImage
+                  : mainImage.main || mainImage.thumbnail
+              }
+              alt="Main"
+              className="h-[62vh] w-auto rounded-xl"
+            />
+          )}
         </div>
 
         {[project.src, ...(project.gallery || [])].length > 1 && (
           <div className="flex gap-4 overflow-auto pb-2">
-            {[project.src, ...(project.gallery || [])].map((img, index) =>
-              typeof img === "string" ? (
+            {galleryItems.map((img, index) => {
+              const isObject = typeof img === "object" && img !== null;
+              const isVideo = isObject && "video" in img;
+              const isLink = isObject && "link" in img;
+
+              const thumbnail = isObject ? img.thumbnail : img;
+
+              const handleMouseEnter = () => {
+                setMainImage(img);
+                setHoveredIndex(index);
+              };
+
+              const previewContent = (
                 <img
-                  key={index}
-                  src={img}
+                  src={thumbnail}
                   alt={`Preview ${index}`}
-                  className="h-20 w-auto rounded-md shadow cursor-pointer hover:scale-105 transition-transform"
-                  onMouseEnter={() => setMainImage(img)}
+                  className={`h-20 w-auto rounded-md shadow hover:scale-105 transition-transform border border-white m-1 ${
+                    isVideo || isLink ? "cursor-pointer" : ""
+                  }`}
+                  onMouseEnter={handleMouseEnter}
                 />
-              ) : (
-                <a
-                  key={index}
-                  href={img.video}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={img.thumbnail}
-                    alt="Video preview"
-                    className="h-20 w-auto rounded-md shadow cursor-pointer hover:scale-105 transition-transform border border-white"
-                    onMouseEnter={() => setMainImage(img.thumbnail)}
-                  />
-                </a>
-              )
-            )}
+              );
+
+              if (isVideo) {
+                return (
+                  <a
+                    key={index}
+                    href={(img as { video: string }).video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {previewContent}
+                  </a>
+                );
+              }
+
+              if (isLink) {
+                return (
+                  <a
+                    key={index}
+                    href={(img as { link: string }).link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {previewContent}
+                  </a>
+                );
+              }
+
+              return <div key={index}>{previewContent}</div>;
+            })}
           </div>
         )}
 

@@ -51,6 +51,14 @@ export const allProjects = [
       db: ["MongoDB"],
       versionning: ["Git", "GitHub"],
     },
+    gallery: [
+      "../../../images/safehub/screen1.png",
+      {
+        thumbnail: "../../../images/safehub/linkedinLink.png",
+        main: "../../../images/safehub/linkedinPost.png",
+        link: "https://www.linkedin.com/posts/tristan-groene_%F0%9D%97%A8%F0%9D%97%A1-%F0%9D%97%A6%F0%9D%97%A7%F0%9D%97%94%F0%9D%97%9A%F0%9D%97%98-%F0%9D%97%A5%F0%9D%97%98%F0%9D%97%A8%F0%9D%97%A6%F0%9D%97%A6%F0%9D%97%9C-%F0%9D%97%96%F0%9D%97%9B%F0%9D%97%98%F0%9D%97%AD-activity-7255260922921865217-k88B?utm_source=share&utm_medium=member_desktop&rcm=ACoAACJbQuYB-I9_g748tCNzCrZFB_gw4QU1AcI",
+      },
+    ],
   },
   {
     id: "reading-tracker",
