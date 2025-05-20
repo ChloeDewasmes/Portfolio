@@ -10,12 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["var(--poppins-regular)", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       fontWeight: {
         thin: "100",
-        extralight: "200",
-        medium: "500",
+        extralight: "250",
+        medium: "400",
         bold: "700",
         extrabold: "800",
       },

@@ -28,7 +28,7 @@
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/Poppins-Medium.ttf") format("truetype");
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -50,17 +50,18 @@
 @layer base {
   html {
     font-family: "Poppins", system-ui, sans-serif;
+    font-weight: 300;
   }
 }
 
 /* UTILITIES */
 @layer utilities {
   .title-text-clamp {
-    font-size: clamp(2rem, min(6vw, 12vh), 8rem);
+    font-size: clamp(2.5rem, min(6vw, 12vh), 8rem);
   }
 
   .text-clamp {
-    font-size: clamp(1rem, min(4vw, 4vh), 2rem);
+    font-size: clamp(1.5rem, min(4vw, 4vh), 2rem);
   }
 
   .pb-clamp {

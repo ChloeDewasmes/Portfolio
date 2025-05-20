@@ -134,7 +134,7 @@ export default function ProjectCarousel() {
                 <h3 className="mt-6 sm:mt-4 text-xl font-bold text-light-grey text-center">
                   {project.name}
                 </h3>
-                <p className="text-sm text-gray-500 mb-4">{project.date}</p>
+                <p className="text-sm text-gray-400 mb-4">{project.date}</p>
                 <div
                   className={`mb-14 ${
                     isActive ? "" : "pointer-events-none opacity-50"

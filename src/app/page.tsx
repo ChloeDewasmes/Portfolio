@@ -56,7 +56,7 @@ export default function Home() {
 
             {/* Titre et liens */}
             <div className="text-light-grey text-center w-full [@media(min-aspect-ratio:1/1)]:w-1/2">
-              <div className="w-full space-y-4 pb-clamp text-clamp [@media(min-aspect-ratio:1/1)]:text-left">
+              <div className="w-full space-y-4 pb-clamp text-clamp font-medium [@media(min-aspect-ratio:1/1)]:text-left">
                 <p>{text.hero.greeting}</p>
                 <h1 className="leading-none title-text-clamp font-extralight bg-gradient-to-br from-light-grey via-light-grey to-black bg-clip-text text-transparent text-wrap">
                   {text.hero.job}
@@ -66,7 +66,7 @@ export default function Home() {
 
               <div className="flex flex-row portrait-tall:flex-col items-center gap-6 [@media(max-aspect-ratio:1/1)]:justify-center">
                 <a
-                  href="../../public/resumes/"
+                  href={text.hero.resumeLink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -118,7 +118,7 @@ export default function Home() {
           {text.about.title}
         </h1>
         <div className="flex items-center justify-center my-12 min-w-[55vw]">
-          <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white rounded-xl h-full p-4 lg:p-8">
+          <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white font-medium rounded-xl h-full p-4 lg:p-8">
             <p>{text.about.description}</p>
             <p>{text.about.availability}</p>
           </div>
