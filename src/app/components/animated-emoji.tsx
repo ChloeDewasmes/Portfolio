@@ -17,11 +17,19 @@ export const AnimatedEmoji = ({
   const [hovered, setHovered] = useState(false);
   const x = useMotionValue(0);
   const springConfig = { stiffness: 100, damping: 5 };
+  const springZ = useSpring(
+    useTransform(x, [-100, 100], [-180, 180]),
+    springConfig
+  );
+  const springY = useSpring(
+    useTransform(x, [-100, 100], [-180, 180]),
+    springConfig
+  );
   const rotate =
     animation === "spinZ"
-      ? useSpring(useTransform(x, [-100, 100], [-180, 180]), springConfig)
+      ? springZ
       : animation === "spinY"
-      ? useSpring(useTransform(x, [-100, 100], [-180, 180]), springConfig)
+      ? springY
       : undefined;
 
   const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {

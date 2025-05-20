@@ -44,7 +44,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const [mainImage, setMainImage] = useState<GalleryItem>(project.src);
 
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [, setHoveredIndex] = useState<number | null>(null);
 
   // Determine if mainImage is a video or string
   const isMainVideo = typeof mainImage === "object" && "video" in mainImage;

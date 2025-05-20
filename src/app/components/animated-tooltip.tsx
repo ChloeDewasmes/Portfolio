@@ -11,7 +11,6 @@ import {
 
 export const AnimatedTooltip = ({
   items,
-  size = "md",
 }: {
   items: {
     id: number;
