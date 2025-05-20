@@ -45,7 +45,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
 
-  // Mets à jour mainImage quand project change
+  // update mainImage when project changes
   useEffect(() => {
     if (project) {
       setMainImage(project.src);
