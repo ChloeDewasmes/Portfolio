@@ -1,4 +1,6 @@
 "use client";
+
+import { use } from "react";
 import { notFound } from "next/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Download } from "lucide-react";
@@ -8,9 +10,9 @@ import translations from "../../translations";
 import { useState } from "react";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 function get(path: string, obj: any): any {
@@ -33,7 +35,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const { lang } = useLang();
   const text = translations[lang].page;
 
-  const project = allProjects.find((p) => p.id === params.id);
+  const { id } = use(params); // unwrap the Promise
+  const project = allProjects.find((p) => p.id === id);
+
   if (!project) return notFound();
 
   const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
