@@ -41,16 +41,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const [mainImage, setMainImage] = useState<GalleryItem | null>(null);
   const [, setHoveredIndex] = useState<number | null>(null);
 
-  if (!project) return notFound();
-
-  const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
-
   // update mainImage when project changes
   useEffect(() => {
     if (project) {
       setMainImage(project.src);
     }
   }, [project]);
+
+  if (!project) return notFound();
+
+  const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
 
   // Determine if mainImage is a video or string
   const isMainVideo =
