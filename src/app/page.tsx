@@ -118,7 +118,7 @@ export default function Home() {
           {text.about.title}
         </h1>
         <div className="flex items-center justify-center my-12 min-w-[55vw]">
-          <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white font-medium rounded-xl h-full p-4 lg:p-8">
+          <div className="relative flex flex-col items-center justify-center bg-dark-salmon text-lg sm:text-xl text-center text-white rounded-xl h-full p-4 lg:p-8">
             <p>{text.about.description}</p>
             <p>{text.about.availability}</p>
           </div>
