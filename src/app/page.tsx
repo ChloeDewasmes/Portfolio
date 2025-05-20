@@ -17,7 +17,7 @@ import { useLang } from "./LangContext";
 import translations from "./translations";
 
 import { motion } from "motion/react";
-import React from "react";
+import React, { Suspense } from "react";
 import { AuroraBackground } from "./components/aurora-background";
 import { AnimatedEmoji } from "./components/animated-emoji";
 
@@ -248,7 +248,9 @@ export default function Home() {
           {text.projects.description}
         </div>
         <div className="mt-12 sm:mt-8">
-          <ProjectCarousel />
+          <Suspense fallback={<div>Chargement...</div>}>
+            <ProjectCarousel />
+          </Suspense>
         </div>
       </FadeInSection>
 
