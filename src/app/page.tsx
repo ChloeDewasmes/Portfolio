@@ -7,7 +7,7 @@ import Programming from "../../public/images/programming.png";
 import Contact from "../../public/images/contact.png";
 import Button from "./components/Button";
 import ProjectCarousel from "./components/ProjectCarousel";
-import { Linkedin, Github, HardDriveDownload } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 import ScrollToTopButton from "./components/scrollToTopButton";
 import { AnimatedStack } from "./components/animated-stack";
 import QualitiesMarquee from "./components/QualitiesMarquee";
