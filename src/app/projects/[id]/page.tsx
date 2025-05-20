@@ -53,7 +53,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }, [project]);
 
   // Determine if mainImage is a video or string
-  const isMainVideo = typeof mainImage === "object" && "video" in mainImage;
+  const isMainVideo =
+    mainImage != null && typeof mainImage === "object" && "video" in mainImage;
 
   return (
     <div className="min-h-screen bg-background-blue">
@@ -72,41 +73,43 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </p>
 
         <div className="flex justify-center rounded-xl shadow-md overflow-hidden mb-4">
-          {isMainVideo ? (
-            <video
-              src={(mainImage as { video: string }).video}
-              className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
-              style={{ maxWidth: "100%" }}
-              controls
-              autoPlay
-              muted
-            />
-          ) : typeof mainImage !== "string" && "link" in mainImage ? (
-            <a
-              href={mainImage.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
+          {mainImage ? (
+            isMainVideo ? (
+              <video
+                src={(mainImage as { video: string }).video}
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
+                style={{ maxWidth: "100%" }}
+                controls
+                autoPlay
+                muted
+              />
+            ) : typeof mainImage !== "string" && "link" in mainImage ? (
+              <a
+                href={mainImage.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <img
+                  src={mainImage.main || mainImage.thumbnail}
+                  alt="Main"
+                  className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl cursor-pointer"
+                  style={{ maxWidth: "100%" }}
+                />
+              </a>
+            ) : (
               <img
-                src={mainImage.main || mainImage.thumbnail}
+                src={
+                  typeof mainImage === "string"
+                    ? mainImage
+                    : mainImage.main || mainImage.thumbnail
+                }
                 alt="Main"
-                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl cursor-pointer"
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
                 style={{ maxWidth: "100%" }}
               />
-            </a>
-          ) : (
-            <img
-              src={
-                typeof mainImage === "string"
-                  ? mainImage
-                  : mainImage.main || mainImage.thumbnail
-              }
-              alt="Main"
-              className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
-              style={{ maxWidth: "100%" }}
-            />
-          )}
+            )
+          ) : null}
         </div>
 
         {[project.src, ...(project.gallery || [])].length > 1 && (
