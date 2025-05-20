@@ -39,29 +39,17 @@ export default function Header() {
         </div>
 
         {/* Navigation links centered */}
-        <div className="flex gap-6 ml-20 text-xl">
-          <a
-            href="#about"
-            className="hover:text-white hover:font-semibold hover:cursor-pointer"
-          >
+        <div className="flex gap-6 ml-20 font-normal text-lg lg:text-xl">
+          <a href="#about" className="hover:text-white hover:cursor-pointer">
             {text.about}
           </a>
-          <a
-            href="#skills"
-            className="hover:text-white hover:font-semibold hover:cursor-pointer"
-          >
+          <a href="#skills" className="hover:text-white hover:cursor-pointer">
             {text.skills}
           </a>
-          <a
-            href="#projects"
-            className="hover:text-white hover:font-semibold hover:cursor-pointer"
-          >
+          <a href="#projects" className="hover:text-white hover:cursor-pointer">
             {text.projects}
           </a>
-          <a
-            href="#contact"
-            className="hover:text-white hover:font-semibold hover:cursor-pointer"
-          >
+          <a href="#contact" className="hover:text-white hover:cursor-pointer">
             Contact
           </a>
         </div>
@@ -70,7 +58,7 @@ export default function Header() {
       {/* Lang Button */}
       <button
         onClick={toggleLang}
-        className="text-light-grey hover:text-white hover:font-semibold text-md lg:text-xl"
+        className="text-light-grey font-normal hover:text-white text-md lg:text-xl"
       >
         {lang === "en" ? "FR" : "EN"}
       </button>

@@ -194,7 +194,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         )}
         <div className="space-y-2">
           {/* First Row: Language, Frontend, Backend */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap font-normal gap-2">
             {/* Language - Light Blue */}
             <span className="bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-sm">
               {project.stack.language}
@@ -222,7 +222,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           {/* Second Row: Database, Versioning */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap font-normal gap-2">
             {/* Database - Light Green */}
             {project.stack.db.map((tech) => (
               <span

@@ -170,7 +170,7 @@ const translations = {
       contact: {
         title: "contact.",
         opportunities:
-          "Je suis disponible pour échanger au sujet de tout types d'opportunités ou de projets. N'hésitez pas à me contacter !",
+          "Je suis disponible pour échanger au sujet de tout type d'opportunité ou de projet. N'hésitez pas à me contacter !",
       },
       credits: {
         lucide: "© Icônes par Lucide",

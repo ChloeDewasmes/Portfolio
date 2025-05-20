@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({ text }) => {
         textAnchor="middle"
         fill="#D9D9D9"
         fontSize="clamp(1.2rem, 4vw, 1.3rem)"
-        fontWeight={isHovered ? "bold" : "normal"}
+        fontWeight={isHovered ? "bold" : "extralight"}
         style={{ transition: "font-weight 0.3s ease" }}
       >
         {text}
