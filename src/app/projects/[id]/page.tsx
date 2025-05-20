@@ -165,7 +165,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <div>
           <p
             key={project.id}
-            className="my-6 text-white text-sm sm:text-base text-justify whitespace-pre-line"
+            className="my-6 text-white text-md sm:text-xl text-justify whitespace-pre-line"
           >
             {get(project.description, text)}
           </p>

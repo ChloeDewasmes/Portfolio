@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* Sections */}
       <FadeInSection id="about">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black">
+        <h1 className="text-salmon-pink text-4xl sm:text-7xl">
           {text.about.title}
         </h1>
         <div className="flex items-center justify-center my-12 min-w-[55vw]">
@@ -219,7 +219,7 @@ export default function Home() {
 
         <SectionWave waveColor="#1B1F24" id="skills">
           <FadeInSection id="skills">
-            <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-6 pt-[5vh]">
+            <h1 className="text-salmon-pink text-4xl sm:text-7xl mb-6 pt-[5vh]">
               {text.skills.title}
             </h1>
             <div className="flex items-center pb-[8vh]">
@@ -241,7 +241,7 @@ export default function Home() {
       </div>
 
       <FadeInSection id="projects">
-        <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mb-20 sm:mb-8">
+        <h1 className="text-salmon-pink text-4xl sm:text-7xl mb-20 sm:mb-8">
           {text.projects.title}
         </h1>
         <div className="text-light-grey text-xl sm:text-2xl space-y-6">
@@ -261,7 +261,7 @@ export default function Home() {
           <FadeInSection id="contact">
             {/* Main content above background */}
             <div className="relative z-10">
-              <h1 className="text-salmon-pink text-4xl sm:text-7xl font-black mt-[8vh]">
+              <h1 className="text-salmon-pink text-4xl sm:text-7xl mt-[8vh]">
                 contact.
               </h1>
 
