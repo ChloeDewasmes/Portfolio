@@ -7,7 +7,7 @@ import { ArrowLeft, Download } from "lucide-react";
 import { allProjects } from "../../data/projects-data";
 import { useLang } from "../../LangContext";
 import translations from "../../translations";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -38,13 +38,19 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const { id } = use(params); // unwrap the Promise
   const project = allProjects.find((p) => p.id === id);
 
+  const [mainImage, setMainImage] = useState<GalleryItem | null>(null);
+  const [, setHoveredIndex] = useState<number | null>(null);
+
   if (!project) return notFound();
 
   const galleryItems: GalleryItem[] = [project.src, ...(project.gallery || [])];
 
-  const [mainImage, setMainImage] = useState<GalleryItem>(project.src);
-
-  const [, setHoveredIndex] = useState<number | null>(null);
+  // Mets à jour mainImage quand project change
+  useEffect(() => {
+    if (project) {
+      setMainImage(project.src);
+    }
+  }, [project]);
 
   // Determine if mainImage is a video or string
   const isMainVideo = typeof mainImage === "object" && "video" in mainImage;
