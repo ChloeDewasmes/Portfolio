@@ -1,7 +1,7 @@
 "use client";
 import { notFound } from "next/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { allProjects } from "../../data/projects-data";
 import { useLang } from "../../LangContext";
 import translations from "../../translations";
@@ -65,11 +65,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           {isMainVideo ? (
             <video
               src={(mainImage as { video: string }).video}
-              className="h-[62vh] w-auto rounded-xl"
+              className="h-[60vh] w-auto rounded-xl"
               controls
               autoPlay
               muted
-              loop
             />
           ) : typeof mainImage !== "string" && "link" in mainImage ? (
             <a
@@ -81,7 +80,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               <img
                 src={mainImage.main || mainImage.thumbnail}
                 alt="Main"
-                className="h-[62vh] w-auto rounded-xl cursor-pointer"
+                className="h-[60vh] w-auto rounded-xl cursor-pointer"
               />
             </a>
           ) : (
@@ -92,7 +91,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   : mainImage.main || mainImage.thumbnail
               }
               alt="Main"
-              className="h-[62vh] w-auto rounded-xl"
+              className="h-[60vh] w-auto rounded-xl"
             />
           )}
         </div>
@@ -156,10 +155,35 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         )}
 
         <div>
-          <p key={project.id} className="my-6 text-white">
+          <p
+            key={project.id}
+            className="my-6 text-white text-sm sm:text-base text-justify whitespace-pre-line"
+          >
             {get(project.description, text)}
           </p>
         </div>
+        {project.id === "safehub" && project.links && (
+          <div className="flex gap-4 mb-6 text-white text-sm sm:text-base items-center">
+            <Download className="text-light-salmon w-5 h-5" />
+            <a
+              href={project.links.appStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer hover:text-salmon-pink hover:underline"
+            >
+              App Store
+            </a>
+            <p>-</p>
+            <a
+              href={project.links.googlePlay}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer hover:text-salmon-pink hover:underline"
+            >
+              Google Play
+            </a>
+          </div>
+        )}
         <div className="space-y-2">
           {/* First Row: Language, Frontend, Backend */}
           <div className="flex flex-wrap gap-2">

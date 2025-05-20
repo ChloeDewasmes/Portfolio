@@ -51,6 +51,11 @@ export const allProjects = [
       db: ["MongoDB"],
       versionning: ["Git", "GitHub"],
     },
+    links: {
+      appStore: "https://apps.apple.com/fr/app/safehub/id1667989239",
+      googlePlay:
+        "https://play.google.com/store/apps/details?id=com.ponzi.etheia&hl=en-US&pli=1",
+    },
     gallery: [
       "../../../images/safehub/screen1.png",
       {
