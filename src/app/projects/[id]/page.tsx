@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Download } from "lucide-react";
 import { allProjects } from "../../data/projects-data";
+import MainImageWithLoader from "../../components/MainImageWithLoader";
+import GalleryPreviewWithLoader from "../../components/GalleryPreviewWithLoader";
 import { useLang } from "../../LangContext";
 import translations from "../../translations";
 import { useState, useEffect } from "react";
@@ -40,11 +42,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const [mainImage, setMainImage] = useState<GalleryItem | null>(null);
   const [, setHoveredIndex] = useState<number | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // update mainImage when project changes
   useEffect(() => {
     if (project) {
       setMainImage(project.src);
+      setIsLoaded(false);
     }
   }, [project]);
 
@@ -74,38 +78,34 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         <div className="flex justify-center rounded-xl shadow-md overflow-hidden mb-4">
           {mainImage ? (
-            isMainVideo ? (
-              <video
-                src={(mainImage as { video: string }).video}
-                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
-                style={{ maxWidth: "100%" }}
-                controls
-                autoPlay
-                muted
-              />
-            ) : typeof mainImage !== "string" && "link" in mainImage ? (
+            typeof mainImage !== "string" && "link" in mainImage ? (
               <a
                 href={mainImage.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <img
+                <MainImageWithLoader
                   src={mainImage.main || mainImage.thumbnail}
                   alt="Main"
-                  className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl cursor-pointer"
+                  isVideo={false}
                   style={{ maxWidth: "100%" }}
                 />
               </a>
             ) : (
-              <img
+              <MainImageWithLoader
                 src={
                   typeof mainImage === "string"
                     ? mainImage
                     : mainImage.main || mainImage.thumbnail
                 }
                 alt="Main"
-                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
+                isVideo={isMainVideo}
+                videoSrc={
+                  isMainVideo
+                    ? (mainImage as { video: string }).video
+                    : undefined
+                }
                 style={{ maxWidth: "100%" }}
               />
             )
@@ -127,7 +127,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               };
 
               const previewContent = (
-                <img
+                <GalleryPreviewWithLoader
                   src={thumbnail}
                   alt={`Preview ${index}`}
                   className={`h-16 sm:h-20 w-auto rounded-md shadow hover:scale-105 transition-transform border border-white m-1 ${

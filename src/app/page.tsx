@@ -248,7 +248,7 @@ export default function Home() {
           {text.projects.description}
         </div>
         <div className="mt-12 sm:mt-8">
-          <Suspense fallback={<div>Chargement...</div>}>
+          <Suspense fallback={<div>...</div>}>
             <ProjectCarousel />
           </Suspense>
         </div>
