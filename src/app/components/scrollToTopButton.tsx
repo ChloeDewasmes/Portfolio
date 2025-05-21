@@ -32,7 +32,7 @@ const ScrollToTopButton: React.FC = () => {
 
   return (
     <div
-      className={`fixed bottom-4 right-4 transition-opacity duration-300 ${
+      className={`fixed bottom-4 right-4 z-10 transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       onClick={scrollToTop}
