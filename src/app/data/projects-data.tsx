@@ -47,7 +47,7 @@ export const allProjects = [
     stack: {
       language: "Typescript",
       front: ["React Native", "React"],
-      back: ["Node.js", "Express.js", "NextJS"],
+      back: ["Node.js", "Express.js", "Next.js"],
       db: ["MongoDB"],
       versionning: ["Git", "GitHub"],
     },

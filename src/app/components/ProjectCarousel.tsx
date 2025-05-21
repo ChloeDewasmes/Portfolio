@@ -34,7 +34,7 @@ export default function ProjectCarousel() {
       name: "Les Petits Explorateurs",
       date: text.projects.dateLPE,
       description: text.projects.lpeDescription,
-      stack: "React Native, Node.js, Express, Redux, MongoDB",
+      stack: "React Native, Node.js, Express.js, Redux, MongoDB",
     },
     {
       id: "safehub",
@@ -58,7 +58,7 @@ export default function ProjectCarousel() {
       name: "Reading Tracker",
       date: text.projects.dateReadingTracker,
       description: text.projects.readingTracker,
-      stack: "React Native, Node.js, Express, MongoDB",
+      stack: "React Native, Node.js, Express.js, MongoDB",
     },
   ];
 
@@ -123,7 +123,7 @@ export default function ProjectCarousel() {
                   />
                   {isActive && (
                     <motion.div
-                      className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-center"
+                      className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center text-white font-normal text-center"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                     >

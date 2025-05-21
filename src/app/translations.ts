@@ -104,7 +104,7 @@ const translations = {
         job: "Développeuse Web",
         location: "basée en France.",
         resumeButton: "CV",
-        resumeLink: "/resumes/CV_DeveloppeurFullstack_DewasmesChloe.pdf",
+        resumeLink: "/resumes/CV_DeveloppeurFullStack_DewasmesChloe.pdf",
       },
       about: {
         title: "à propos.",
