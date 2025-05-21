@@ -42,7 +42,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const [mainImage, setMainImage] = useState<GalleryItem | null>(null);
   const [, setHoveredIndex] = useState<number | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [, setIsLoaded] = useState(false);
 
   // update mainImage when project changes
   useEffect(() => {
