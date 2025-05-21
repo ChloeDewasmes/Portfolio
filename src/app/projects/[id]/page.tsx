@@ -5,8 +5,6 @@ import { notFound } from "next/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Download } from "lucide-react";
 import { allProjects } from "../../data/projects-data";
-import MainImageWithLoader from "../../components/MainImageWithLoader";
-import GalleryPreviewWithLoader from "../../components/GalleryPreviewWithLoader";
 import { useLang } from "../../LangContext";
 import translations from "../../translations";
 import { useState, useEffect } from "react";
@@ -42,15 +40,20 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const [mainImage, setMainImage] = useState<GalleryItem | null>(null);
   const [, setHoveredIndex] = useState<number | null>(null);
-  const [, setIsLoaded] = useState(false);
+  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
 
   // update mainImage when project changes
   useEffect(() => {
     if (project) {
       setMainImage(project.src);
-      setIsLoaded(false);
+      setIsImagesLoaded(false);
     }
   }, [project]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsImagesLoaded(true), 1000);
+    return () => clearTimeout(timeout);
+  }, [mainImage]);
 
   if (!project) return notFound();
 
@@ -76,36 +79,44 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           {get(project.date, text)}
         </p>
 
-        <div className="flex justify-center rounded-xl shadow-md overflow-hidden mb-4">
-          {mainImage ? (
-            typeof mainImage !== "string" && "link" in mainImage ? (
+        <div className="flex justify-center rounded-xl shadow-md overflow-hidden mb-4 min-h-[40vh] sm:min-h-[60vh] relative">
+          {!isImagesLoaded ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-background-blue bg-opacity-70 rounded-xl">
+              <div className="w-12 h-12 border-4 border-salmon-pink border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : mainImage ? (
+            isMainVideo ? (
+              <video
+                src={(mainImage as { video: string }).video}
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
+                style={{ maxWidth: "100%" }}
+                controls
+                autoPlay
+                muted
+              />
+            ) : typeof mainImage !== "string" && "link" in mainImage ? (
               <a
                 href={mainImage.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <MainImageWithLoader
+                <img
                   src={mainImage.main || mainImage.thumbnail}
                   alt="Main"
-                  isVideo={false}
+                  className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl cursor-pointer"
                   style={{ maxWidth: "100%" }}
                 />
               </a>
             ) : (
-              <MainImageWithLoader
+              <img
                 src={
                   typeof mainImage === "string"
                     ? mainImage
                     : mainImage.main || mainImage.thumbnail
                 }
                 alt="Main"
-                isVideo={isMainVideo}
-                videoSrc={
-                  isMainVideo
-                    ? (mainImage as { video: string }).video
-                    : undefined
-                }
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
                 style={{ maxWidth: "100%" }}
               />
             )
@@ -114,60 +125,66 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {[project.src, ...(project.gallery || [])].length > 1 && (
           <div className="flex gap-4 overflow-auto pb-2">
-            {galleryItems.map((img, index) => {
-              const isObject = typeof img === "object" && img !== null;
-              const isVideo = isObject && "video" in img;
-              const isLink = isObject && "link" in img;
+            {!isImagesLoaded ? (
+              <div className="flex items-center justify-center w-full min-h-[5rem]">
+                {/*<div className="w-8 h-8 border-4 border-salmon-pink border-t-transparent rounded-full animate-spin" />*/}
+              </div>
+            ) : (
+              galleryItems.map((img, index) => {
+                const isObject = typeof img === "object" && img !== null;
+                const isVideo = isObject && "video" in img;
+                const isLink = isObject && "link" in img;
 
-              const thumbnail = isObject ? img.thumbnail : img;
+                const thumbnail = isObject ? img.thumbnail : img;
 
-              const handleMouseEnter = () => {
-                setMainImage(img);
-                setHoveredIndex(index);
-              };
+                const handleMouseEnter = () => {
+                  setMainImage(img);
+                  setHoveredIndex(index);
+                };
 
-              const previewContent = (
-                <GalleryPreviewWithLoader
-                  src={thumbnail}
-                  alt={`Preview ${index}`}
-                  className={`h-16 sm:h-20 w-auto rounded-md shadow hover:scale-105 transition-transform border border-white m-1 ${
-                    isVideo || isLink ? "cursor-pointer" : ""
-                  }`}
-                  style={{ maxWidth: "none" }}
-                  onMouseEnter={handleMouseEnter}
-                />
-              );
-
-              if (isVideo) {
-                return (
-                  <a
-                    key={index}
-                    href={(img as { video: string }).video}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    {previewContent}
-                  </a>
+                const previewContent = (
+                  <img
+                    src={thumbnail}
+                    alt={`Preview ${index}`}
+                    className={`h-16 sm:h-20 w-auto rounded-md shadow hover:scale-105 transition-transform border border-white m-1 ${
+                      isVideo || isLink ? "cursor-pointer" : ""
+                    }`}
+                    style={{ maxWidth: "none" }}
+                    onMouseEnter={handleMouseEnter}
+                  />
                 );
-              }
 
-              if (isLink) {
-                return (
-                  <a
-                    key={index}
-                    href={(img as { link: string }).link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    {previewContent}
-                  </a>
-                );
-              }
+                if (isVideo) {
+                  return (
+                    <a
+                      key={index}
+                      href={(img as { video: string }).video}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      {previewContent}
+                    </a>
+                  );
+                }
 
-              return <div key={index}>{previewContent}</div>;
-            })}
+                if (isLink) {
+                  return (
+                    <a
+                      key={index}
+                      href={(img as { link: string }).link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      {previewContent}
+                    </a>
+                  );
+                }
+
+                return <div key={index}>{previewContent}</div>;
+              })
+            )}
           </div>
         )}
 
