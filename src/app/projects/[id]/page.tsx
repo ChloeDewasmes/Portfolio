@@ -88,7 +88,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             isMainVideo ? (
               <video
                 src={(mainImage as { video: string }).video}
-                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto object-contain rounded-xl"
                 style={{ maxWidth: "100%" }}
                 controls
                 autoPlay
@@ -104,7 +104,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <img
                   src={mainImage.main || mainImage.thumbnail}
                   alt="Main"
-                  className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl cursor-pointer"
+                  className="max-h-[40vh] sm:max-h-[60vh] w-auto object-contain rounded-xl cursor-pointer"
                   style={{ maxWidth: "100%" }}
                 />
               </a>
@@ -116,7 +116,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     : mainImage.main || mainImage.thumbnail
                 }
                 alt="Main"
-                className="max-h-[40vh] sm:max-h-[60vh] w-auto rounded-xl"
+                className="max-h-[40vh] sm:max-h-[60vh] w-auto object-contain rounded-xl"
                 style={{ maxWidth: "100%" }}
               />
             )
